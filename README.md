@@ -456,6 +456,20 @@ best trades produced 78% of the total gain; the memory trade alone about a seven
 Only inverse-volatility weighting improved both halves, and only marginally. The baseline is already close
 to the best of this family; the differences among the top rows are within noise.
 
+## Version 7: the rotation without technology themes
+
+`python run7.py` writes `outputs/v7/`. Same monthly top-3 rule, with themes removed from the universe.
+
+| Universe | CAGR | Sharpe | Max DD | CAGR 2018-22 | CAGR 2023-26 | Sharpe 2023-26 |
+|---|---|---|---|---|---|---|
+| All 51 themes | 39.6% | 1.24 | -38% | 22.5% | 65.5% | 1.73 |
+| Without technology (chips, memory, AI chips, packaging, foundry, optics, drives, chip equipment) | 28.0% | 0.97 | -40% | 17.7% | 42.8% | 1.30 |
+| Also without the AI power chain (grid equipment, power producers, turbines, data-centre cooling and space) | 23.8% | 0.87 | -40% | 17.6% | 32.5% | 1.07 |
+| SPY | 14.2% | 0.79 | -34% | 9.3% | 20.8% | 1.33 |
+
+Technology themes were held on 27% of days and produced about a quarter of the summed gains. Without them
+2026 turns from +49% to -4%, and 2018 from +1% to -12%.
+
 ## Limitations (v1)
 
 - **No memory-chip (DRAM/HBM) test.** I found no free, point-in-time DRAM contract price series. The
