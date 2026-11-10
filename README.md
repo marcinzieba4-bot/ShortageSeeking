@@ -371,6 +371,30 @@ cited repeatedly in October 2026 is skilled labour.
 - A daily moving-average switch whipsaws and costs 3 to 6 points a year.
 - As a one-time check on the entry day it helps: 64 trades entered above the 100-day average won 59% (mean +22%); the 7 entered below won 29% (mean +0.5%).
 
+## Version 5: combined universe (price + news + earnings-call bottlenecks) and overlays
+
+`python run5.py` writes `outputs/v5/`. News and call-based bottleneck signals are full members here
+(news rule applied to all 20 forum topics; call bottleneck needs 3 firms at twice the norm).
+
+| Rule | CAGR | Sharpe | Max DD | CAGR 2018-22 | Sharpe 2018-22 | CAGR 2023-26 | Sharpe 2023-26 |
+|---|---|---|---|---|---|---|---|
+| Price signals only (old base) | 19.0% | 0.99 | -29% | 16.9% | 0.94 | 21.8% | 1.05 |
+| Combined, hold all active (20% cap) | 22.0% | 1.00 | -39% | 12.8% | 0.66 | 35.1% | 1.42 |
+| Combined + 50-day in/out | 12.7% | 0.77 | -28% | 4.8% | 0.37 | 23.9% | 1.25 |
+| Combined + 100-day in/out | 17.1% | 0.94 | -31% | 7.5% | 0.51 | 30.8% | 1.42 |
+| Combined + 100-day entry gate | 22.8% | 1.06 | -28% | 15.4% | 0.80 | 33.2% | 1.36 |
+| Combined, 33% cap, no selection | 25.0% | 0.98 | -51% | 11.7% | 0.57 | 44.7% | 1.45 |
+| Combined, rotate quarterly, top 3 by 6-month momentum | 30.4% | 1.07 | -46% | 21.7% | 0.83 | 42.8% | 1.35 |
+| Combined, rotate monthly, top 3 by 6-month momentum | 39.9% | 1.26 | -38% | 22.5% | 0.84 | 66.4% | 1.76 |
+| 100-day gate + rotate quarterly top 3 | 32.8% | 1.16 | -38% | 25.6% | 0.99 | 42.8% | 1.35 |
+| 100-day gate + rotate quarterly top 5 | 25.3% | 1.12 | -34% | 22.9% | 1.02 | 28.4% | 1.26 |
+| Random 3 active shortages (mean of 300 runs) | 22.2% | 0.88 | -47% | 13.2% | 0.61 | 35.1% | 1.22 |
+| SPY | 14.2% | 0.79 | -34% | 9.3% | 0.52 | 20.8% | 1.33 |
+
+- Momentum top-3 beats 90% of random top-3 portfolios on Sharpe over the full period, 71% after 2023.
+- By source, held alone: price 19.0% (Sharpe 0.99), news 16.7% (1.07), calls 8.2% (0.61).
+- The 50-day in/out rule trades about 13 times a year and loses roughly 9 points of annual return.
+
 ## Limitations (v1)
 
 - **No memory-chip (DRAM/HBM) test.** I found no free, point-in-time DRAM contract price series. The
