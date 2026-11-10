@@ -249,6 +249,109 @@ stocks were already falling in 9 of 11 metal shortages, so stocks confirm but do
 - **Short-side costs are a flat 1% a year;** real borrow on small miners can be far higher.
 - The 2023-26 judging period has 19 price-based shortage trades. It is a check, not proof.
 
+## Version 3: earnings calls, analyst reports, bottlenecks, and the full theme list
+
+**The full list of 49 themes, with status, bottleneck and assets, is in [THEMES.md](THEMES.md).**
+
+### Sources used
+
+| Source | What it is | Coverage |
+|---|---|---|
+| Earnings calls | 33,362 S&P 500 call transcripts (open MIT-licensed dataset `kurry/sp500_earnings_transcripts`); only scores are stored here | 2005 to May 2025 |
+| SEC quarterly reports | 10-Q / 10-K of 112 companies across every theme, risk-factor boilerplate filtered out | Nov 2024 to Nov 2026 (900 filings) |
+| Fed Beige Book | 78 reports, the "analytical report" with a clean release date | 2017 to Oct 2026 |
+| Analyst and trade reports | Web search on 10 Nov 2026; used only for today's status, never in a backtest | current |
+
+### How a bottleneck is detected
+
+Every company is treated as a sensor. Each sentence is checked for shortage language ("constrained",
+"sold out", "on allocation", "lead times extended"...) or glut language ("oversupply", "excess inventory",
+"destocking", "pricing pressure"...), and for which of 38 named inputs it is about (HBM, transformers,
+copper, labour...). An input becomes a live bottleneck when at least five companies cite it in the same
+three months and that is at least twice its own two-year norm. The trade is to buy the companies that
+*sell* the constrained input. Mapping is in `shortage/bottleneck.py`.
+
+### Backtest of the call-based signal (entries 2018 to May 2025)
+
+| | Trades | Won | Mean return | Mean vs SPY |
+|---|---|---|---|---|
+| Bottleneck: long the suppliers | 14 | 57% | +16.6% | +11.6 |
+| of which entered 2018-22 | 12 | 50% | +12.0% | +8.0 |
+| of which entered 2023-25 | 2 | 100% | +44.1% | +33.4 |
+| Glut: short the suppliers | 8 | 25% | -18.0% | -7.0 |
+
+- Hits: container shipping (Apr 2021, +57%), lumber (Nov 2020, +52%), electric power for data centres
+  (Aug 2024, +72%), skilled labour via contractors (May 2021, +31%), auto chips (Feb 2021, +22%).
+- Misses: housing 2018, gas 2018 and 2022, chip equipment Nov 2021 (-29%).
+- As a portfolio it was invested rarely: 8.2% a year, Sharpe 0.64; hedged with SPY, Sharpe 0.80.
+- Shorting gluts lost again, for the third time across three independent data sources.
+- **The detector is conservative.** It never fired on memory or transformers before the call data ends in
+  May 2025, because fewer than five S&P 500 companies named them in one quarter.
+- Fourteen trades is a small sample. Treat this as a third, independent confirmation of the long side, not
+  as a stand-alone strategy.
+
+### Which asset inside a theme
+
+Tested on the same 14 signals, choosing at entry with no hindsight:
+
+| Choice | Won | Mean return |
+|---|---|---|
+| Equal-weight basket of suppliers | 57% | +16.6% |
+| The 6-month price leader | 57% | +15.9% |
+| The 6-month price laggard | 86% | +13.7% |
+| The designated pure play | 71% | +16.1% |
+
+No selection rule beat the plain basket, so **the best asset is the equal-weight basket of the companies
+that sell the bottleneck**. THEMES.md lists each basket with the purest name first.
+
+### The Beige Book as a whole-economy gauge
+
+Shortage minus glut sentences per report: +37 in 2021, +26 in 2022, +5 in 2023, and about -1.5 in each of
+2024, 2025 and 2026. Outside AI hardware, the US economy is not short of things today; the only input
+cited repeatedly in October 2026 is skilled labour.
+
+### What the list says today
+
+- **Analysts call 12 themes short:** memory, optical lasers, AI accelerators, advanced packaging, gas
+  turbines, transformers, grid power, aero engines, aircraft, rare earths, critical minerals, uranium.
+  Nearly all are one chain: AI data centres and the power to run them.
+- **11 of those 12 supplier baskets are below their 200-day average** (memory -18%, optical -31%,
+  packaging -23%, transformers -17%, uranium -30%). In v1, themes bought below that average lost money,
+  and in v2, signals with heavy coverage did worse than quiet ones. The shortages are real but crowded
+  and currently selling off.
+- **Stale reports are a trap.** Early-2026 reports called an oil and LNG glut. Since then Brent has gone
+  from $85 to $125 and European gas is up 85% in six months. Dated prices beat dated opinions.
+- **Model signals on:** copper only (price rule). Companies citing shortages most in current filings:
+  skilled labour (11), natural gas (4), memory (3).
+
+### Limitations of v3
+
+- Call transcripts stop in May 2025; after that only formal filings are scored, which use less candid
+  language and gave too few hits to trade on.
+- The word lists and the input-to-supplier mapping were written in 2026.
+- The "analysts say" column is a one-day web search of mixed-quality sources and is not back-tested.
+- Free call-transcript websites opt out of automated collection, so they were not used.
+
+### Sources for the analyst column
+
+[Apollo: the growing compute shortage](https://www.apollo.com/content/dam/apolloaem/documents/insights/the-growing-compute-shortage.pdf) ·
+[Transformers Magazine: power bottleneck](https://transformers-magazine.com/tm-news/power-bottleneck-slows-ai-data-centres/) ·
+[HBM shortages and data-centre plans](https://news.pcim.mesago.com/hbm-chip-shortages-put-data-center-growth-plans-at-risk-a-66da023f5156bb2384c9c249f2fdcaad/) ·
+[DRAM record, NAND flat, Oct 2026](https://tech-insider.org/dram-record-high-nand-flat-21-months-october-2026/) ·
+[TrendForce: InP shortage](https://trendforce.com/news/2026/08/06/news-inp-shortage-emerges-as-ai-optical-interconnect-bottleneck/) ·
+[S&P Global: copper concentrate](https://www.spglobal.com/energy/en/news-research/latest-news/metals/062426-concentrate-supply-remains-tightest-segment-of-copper-value-chain-nornickel) ·
+[Goldman 2026 commodity outlook](https://investinglive.com/commodities/goldman-sachs-2026-outlook-buy-gold-to-4900-sell-oil-to-50-20251230) ·
+[TD Economics commodities](https://economics.td.com/domains/economics.td.com/documents/reports/me/Commodities_Quick_Take_Nov2025.pdf) ·
+[LNG supply glut](https://www.rigzone.com/news/wire/lng_market_faces_looming_supply_glut-09-sep-2025-181739-article/) ·
+[BNEF commodities 2026](https://about.bnef.com/insights/commodities/commodities-in-2026-10-numbers-to-watch-from-power-to-oil/) ·
+[S&P Global: rare earth bottlenecks](https://www.spglobal.com/market-intelligence/en/news-insights/articles/2026/1/rare-earth-supply-bottlenecks-set-to-persist-in-2026-97422193) ·
+[BCG: aerospace castings and forgings](https://www.bcg.com/publications/2024/fixing-aerospaces-supply-chain-for-casting-and-forging) ·
+[Aviation Week: engine repair slots](https://aviationweek.com/mro/aircraft-propulsion/demand-soaring-commercial-engine-maintenance-repair-slots) ·
+[Uranium outlook commentary](https://skillings.net/uranium-market-outlook-2026-smr-demand-and-supply-gaps/) ·
+[Coffee and cocoa supplies](https://www.rfdtv.com/coffee-cocoa-prices-slide-as-global-supplies-expand?p=100) ·
+[PV oversupply](https://www.pv-magazine.com/2026/08/28/global-pv-additions-forecast-to-reach-638-gw-in-2026/) ·
+[Xeneta container outlook](https://www.seatrade-maritime.com/containers/supply-chain-damage-already-done-says-xeneta)
+
 ## Limitations (v1)
 
 - **No memory-chip (DRAM/HBM) test.** I found no free, point-in-time DRAM contract price series. The
@@ -276,6 +379,11 @@ python charts.py
 python -m shortage.hn    # refresh news counts (adds new months only)
 python run2.py           # v2 research tables -> outputs/v2
 python charts.py v2
+python -m shortage.filings calls <path to dataset parquet>   # score call transcripts (one-off)
+python -m shortage.filings   # score SEC quarterly reports (slow; resumes from cache)
+python -m shortage.beige     # score Fed Beige Books
+python run3.py               # v3 bottleneck research -> outputs/v3
+python themes.py             # THEMES.md and outputs/v3/themes.csv
 ```
 
 | File | Contents |

@@ -1,0 +1,122 @@
+missing: []
+
+=== 1. EARNINGS-CALL SIGNALS (S&P 500 calls, to May 2025) ===
+                       set  n   win  beat_spy   mean  median  mean_vs_spy  median_vs_spy    days
+bottleneck: long suppliers 14 0.571     0.571  0.166   0.165        0.116          0.086 214.071
+           entries 2018-22 12 0.500     0.500  0.120   0.076        0.080          0.036 235.750
+           entries 2023-25  2 1.000     1.000  0.441   0.441        0.334          0.334  84.000
+     glut: short suppliers  8 0.250     0.250 -0.180  -0.212       -0.070         -0.080 149.625
+           entries 2018-22  5 0.200     0.200 -0.202  -0.213       -0.055         -0.065 164.800
+           entries 2023-25  3 0.333     0.333 -0.142  -0.046       -0.096         -0.102 124.333
+-- bottleneck longs
+                           label      entry       exit  heat  firms  days   ret  excess
+            Crude oil / refining 2018-03-02 2019-02-04  2.86    5.0   232 -0.02   -0.05
+                  Housing / lots 2018-05-02 2019-04-02  2.06   22.0   230 -0.11   -0.22
+                  Skilled labour 2018-09-05 2019-03-04  2.05   28.0   122 -0.04   -0.02
+               Natural gas / LNG 2018-12-04 2019-05-02  2.76    6.0   101 -0.02   -0.11
+                   Lumber / wood 2020-11-03 2021-04-05  2.88    5.0   103  0.52    0.30
+        Mature-node / auto chips 2021-02-02 2022-08-02  2.80    5.0   377  0.22    0.13
+                  Housing / lots 2021-03-02 2022-12-02  2.32   24.0   444  0.17    0.09
+    Ships / containers / freight 2021-04-05 2022-07-05  3.94    9.0   315  0.57    0.61
+                  Skilled labour 2021-05-04 2022-12-02  2.18   34.0   400  0.31    0.31
+                   Lumber / wood 2021-07-02 2021-12-02  2.15    5.0   106  0.19    0.13
+         Semiconductor equipment 2021-11-02 2022-09-02  2.06    5.0   210 -0.29   -0.15
+               Natural gas / LNG 2022-05-03 2023-02-02  2.65    7.0   189 -0.07   -0.09
+          AI accelerators / GPUs 2024-03-04 2024-07-02  2.50    5.0    83  0.16    0.08
+Electric power / grid connection 2024-08-02 2024-12-03  2.07    6.0    85  0.72    0.58
+-- glut shorts
+                   label      entry       exit  heat  firms  days   ret  excess
+HBM / DRAM / NAND memory 2019-03-04 2019-11-04  2.27    5.0   171 -0.21   -0.10
+          Skilled labour 2019-05-02 2020-03-03  2.16    7.0   210  0.07    0.11
+          Housing / lots 2019-08-02 2020-03-03  2.00   15.0   146 -0.22   -0.18
+    Crude oil / refining 2020-06-02 2021-05-04  2.74    9.0   232 -0.44   -0.06
+          Skilled labour 2020-06-02 2020-09-02  2.64   13.0    65 -0.21   -0.05
+          Housing / lots 2023-02-02 2024-02-02  2.56   20.0   251 -0.42   -0.22
+HBM / DRAM / NAND memory 2023-02-02 2023-05-02  2.59    5.0    61  0.04    0.03
+       Natural gas / LNG 2025-02-04 2025-05-02  2.26    6.0    61 -0.05   -0.10
+
+=== 2. WHICH ASSET (same bottleneck signals) ===
+                         set  n   win  beat_spy  mean  median  mean_vs_spy  median_vs_spy    days  tr_mean  te_mean
+equal-weight supplier basket 14 0.571     0.571 0.166   0.165        0.116          0.086 214.071    0.120    0.441
+     6-month leader at entry 14 0.571     0.571 0.159   0.177        0.109          0.106 214.071    0.131    0.325
+    6-month laggard at entry 14 0.857     0.714 0.137   0.097        0.087          0.067 214.071    0.102    0.348
+        designated pure play 14 0.714     0.571 0.161   0.080        0.111          0.054 214.071    0.057    0.783
+
+=== 3. LEADERBOARD AT EACH YEAR-END (firms citing vs 2-year norm) ===
+  as_of                                                                                                      top_bottlenecks                                      top_gluts
+2017-12                                              HBM / DRAM / NAND memory 1.7x; Housing / lots 1.3x; Skilled labour 1.0x                            Housing / lots 0.5x
+2018-12                                                     Natural gas / LNG 2.8x; Skilled labour 1.2x; Housing / lots 1.1x                            Housing / lots 1.5x
+2019-12                                                                             Skilled labour 0.9x; Housing / lots 0.4x       Skilled labour 1.4x; Housing / lots 1.2x
+2020-12                                                                             Skilled labour 1.2x; Housing / lots 1.2x Crude oil / refining 1.5x; Housing / lots 1.5x
+2021-12           Skilled labour 5.4x; Mature-node / auto chips 3.7x; Ships / containers / freight 2.8x; Housing / lots 2.3x       Skilled labour 1.1x; Housing / lots 0.8x
+2022-12 Aero engines / castings / titanium 1.6x; Skilled labour 0.8x; Housing / lots 0.8x; Ships / containers / freight 0.7x                            Housing / lots 1.9x
+2023-12                                      Electric power / grid connection 1.6x; Housing / lots 0.6x; Skilled labour 0.3x       Skilled labour 1.4x; Housing / lots 1.3x
+2024-12                                                                             Housing / lots 0.8x; Skilled labour 0.3x       Skilled labour 1.3x; Housing / lots 0.9x
+2025-05                                                                             Housing / lots 0.7x; Skilled labour 0.5x                            Housing / lots 0.7x
+
+=== 4. BASKETS FROM CALL SIGNALS (Jan 2018 - Aug 2025) ===
+                     basket   cagr   vol  sharpe  maxdd  sharpe_2018_22  sharpe_2023_25
+  Long bottleneck suppliers  0.082 0.138   0.636 -0.255           0.486           2.298
+       Short glut suppliers -0.019 0.058  -0.307 -0.255          -0.516           0.208
+Bottleneck suppliers vs SPY  0.063 0.080   0.799 -0.132           0.586           2.065
+                        SPY  0.140 0.197   0.763 -0.337           0.522           1.412
+
+=== 5. LIVE FROM SEC FILINGS, 3 months to 2026-11 (112 companies; 1500 filings scored) ===
+                                 input  firms_short  heat_short  firms_glut  heat_glut   net
+                                Copper          1.0        1.34         0.0       0.76  0.57
+         Leading-edge wafers / foundry          1.0        1.32         0.0       0.79  0.52
+                     Grains / oilseeds          1.0        1.14         1.0       0.69  0.50
+                        Skilled labour         11.0        0.79         0.0       0.49  0.48
+                     Natural gas / LNG          4.0        1.04         2.0       0.68  0.42
+                  Uranium / enrichment          2.0        1.40         1.0       1.04  0.29
+                                 Steel          1.0        1.35         2.0       1.03  0.27
+                  Chemicals / plastics          1.0        1.26         1.0       0.97  0.26
+                    Optical components          1.0        1.10         1.0       0.85  0.26
+                 Vehicles (new / used)          1.0        1.13         0.0       0.88  0.25
+              HBM / DRAM / NAND memory          2.0        1.38         1.0       1.08  0.24
+             Transformers / switchgear          2.0        1.13         0.0       0.89  0.24
+                 Rare earths / magnets          2.0        1.09         0.0       0.89  0.20
+Advanced packaging (CoWoS, substrates)          1.0        1.21         0.0       1.00  0.19
+                 Hard drives / storage          0.0        0.86         0.0       0.74  0.15
+          Ships / containers / freight          1.0        1.09         0.0       0.95  0.14
+              Mature-node / auto chips          2.0        1.14         1.0       1.01  0.12
+                         Lumber / wood          1.0        1.18         1.0       1.08  0.09
+                            Fertiliser          2.0        1.48         2.0       1.37  0.08
+     Critical minerals (Ga, Ge, Sb, W)          0.0        1.00         0.0       0.98  0.02
+               Semiconductor equipment          0.0        1.00         0.0       1.00  0.00
+                   Data-centre cooling          0.0        1.00         0.0       1.00  0.00
+                     Data-centre space          0.0        1.00         0.0       1.00  0.00
+                          Gas turbines          0.0        1.00         0.0       1.00  0.00
+                     Trucking capacity          0.0        1.00         0.0       1.00  0.00
+                              Aircraft          0.0        1.00         0.0       1.00  0.00
+           Solar modules / polysilicon          0.0        0.88         0.0       0.90 -0.02
+           Lithium / battery materials          0.0        0.90         0.0       0.94 -0.05
+                        Housing / lots          1.0        0.94         0.0       1.00 -0.06
+                             Aluminium          0.0        0.82         1.0       0.91 -0.09
+              Oilfield services / rigs          0.0        0.90         0.0       1.00 -0.11
+    Aero engines / castings / titanium          0.0        0.78         1.0       0.96 -0.20
+                AI accelerators / GPUs          0.0        0.63         0.0       0.78 -0.21
+             GLP-1 drugs / fill-finish          0.0        0.79         0.0       1.00 -0.24
+                  Crude oil / refining          0.0        0.62         2.0       0.98 -0.46
+                                 Water          0.0        0.62         0.0       1.00 -0.47
+          Cattle / beef / eggs / cocoa          0.0        0.78         1.0       1.30 -0.51
+      Electric power / grid connection          1.0        0.71         1.0       1.33 -0.63
+-- filing-based signals entered since June 2025 (after the call data ends)
+                           label  side      entry       exit  heat  firms   ret  excess  open
+        HBM / DRAM / NAND memory     1 2026-03-03 2026-11-09  2.40    3.0  0.49    0.38  True
+Electric power / grid connection     1 2026-03-03 2026-07-02  2.25    6.0 -0.11   -0.21 False
+            Crude oil / refining     1 2026-03-03 2026-06-02  2.14    4.0  0.12    0.00 False
+                           Water     1 2026-03-03 2026-06-02  3.19    6.0 -0.10   -0.22 False
+
+=== 5b. FILING-BASED SIGNALS ===
+                           set  n   win  beat_spy   mean  median  mean_vs_spy  median_vs_spy    days
+filings: bottleneck longs, all  8 0.750     0.625  0.134   0.079        0.053          0.001  92.000
+        entered since Jun 2025  4 0.500     0.500  0.103   0.012       -0.011         -0.103  96.000
+     filings: glut shorts, all  6 0.167     0.167 -0.344  -0.347       -0.132         -0.110 263.167
+
+=== 6. BEIGE BOOK: shortage minus glut sentences per 10k words ===
+y    2017  2018  2019  2020  2021  2022  2023  2024  2025  2026
+s    19.0  29.1  17.0  16.6  68.4  55.6  21.3   9.8   7.8  12.7
+g     5.4   4.5   9.5  11.8   5.4  10.6  12.7  12.2  10.2  14.9
+net   8.5  15.2   4.6   2.9  36.7  26.2   5.1  -1.5  -1.5  -1.3
+latest 202610 top shortage inputs: [('Skilled labour', 7), ('Crude oil / refining', 1)] | glut: [('Housing / lots', 1), ('Lumber / wood', 1), ('Fertiliser', 1)]
