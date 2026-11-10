@@ -1,0 +1,213 @@
+missing tickers: ['PCH']
+
+=== EVENTS (theme return entry->exit) ===
+/home/user/ShortageSeeking/run.py:38: UserWarning: obj.round has no effect with datetime, timedelta, or period dtypes. Use obj.dt.round(...) instead.
+  print(show.round(2).to_string(index=False))
+              label      theme signal_month      entry       exit    z  days   ret   spy  excess  fwd63  fwd126  fwd252  open
+Natural gas, Europe     eu_gas      2017-12 2018-01-08 2018-12-10 1.73   232  0.09 -0.02    0.11   0.08    0.22    0.13 False
+ Eggs, retail price       eggs      2018-04 2018-05-21 2018-07-23 1.82    43 -0.05  0.03   -0.08   0.05    0.06   -0.14 False
+Softwood lumber PPI     lumber      2018-06 2018-07-23 2018-09-24 1.63    44 -0.06  0.04   -0.10  -0.21   -0.29   -0.40 False
+            Uranium    uranium      2018-09 2018-10-19 2019-04-22 1.69   124 -0.01  0.06   -0.07  -0.03   -0.03   -0.12 False
+    Natural gas, US     us_gas      2018-11 2018-12-10 2019-02-07 1.52    40 -0.23  0.03   -0.26  -0.17   -0.43   -0.62 False
+          Palladium        pgm      2019-02 2019-03-01 2019-06-03 1.72    64 -0.01 -0.02    0.01  -0.04    0.38    1.17 False
+           Iron ore   iron_ore      2019-06 2019-07-08 2019-09-09 1.83    44 -0.08  0.00   -0.09  -0.10    0.07    0.13 False
+             Nickel     nickel      2019-09 2019-10-07 2019-12-06 1.51    43 -0.05  0.07   -0.12   0.06   -0.24   -0.02 False
+              Cocoa    cocoa_f      2020-02 2020-03-06 2020-04-07 1.70    22 -0.11 -0.10   -0.00  -0.11    0.00   -0.00 False
+          Palladium        pgm      2020-02 2020-03-02 2020-06-01 2.46    63 -0.09 -0.01   -0.09  -0.09    0.34    1.44 False
+            Uranium    uranium      2020-05 2020-06-19 2020-10-21 1.94    86  0.05  0.11   -0.06   0.10    0.39    1.00 False
+Softwood lumber PPI     lumber      2020-07 2020-08-21 2020-12-21 2.25    84  0.18  0.09    0.08  -0.01    0.24    0.29 False
+               Gold       gold      2020-07 2020-08-07 2020-12-07 1.54    84 -0.15  0.11   -0.25  -0.04   -0.17   -0.24 False
+           Iron ore   iron_ore      2020-08 2020-09-08 2021-09-08 1.60   252  0.40  0.37    0.03   0.27    0.42    0.40 False
+             Silver     silver      2020-08 2020-09-08 2021-08-06 2.23   230 -0.12  0.35   -0.46  -0.07   -0.10   -0.13 False
+      Used cars CPI  used_cars      2020-08 2020-09-22 2021-02-22 2.32   104  0.51  0.18    0.33   0.20    0.69    1.14 False
+             Copper     copper      2020-09 2020-10-07 2021-09-08 2.23   231  0.75  0.34    0.41   0.66    0.81    0.71 False
+           Soybeans       agri      2020-10 2020-11-06 2021-08-06 2.06   187  0.31  0.28    0.03   0.21    0.33    0.39 False
+      Wheat, US HRW       agri      2020-11 2020-12-07 2021-04-08 1.64    83  0.18  0.12    0.06   0.17    0.25    0.25 False
+          Aluminium   aluminum      2020-12 2021-01-08 2021-12-07 2.36   230  0.50  0.24    0.26   0.22    0.28    0.89 False
+              Maize       agri      2020-12 2021-01-08 2021-09-08 1.89   167  0.13  0.19   -0.06   0.07    0.11    0.15 False
+           Platinum        pgm      2020-12 2021-01-08 2021-07-08 2.36   124  0.17  0.14    0.03   0.31    0.20    0.04 False
+      DAP phosphate fertilizer      2021-01 2021-02-05 2022-07-08 2.08   357  0.63  0.02    0.60   0.22    0.14    0.53 False
+             Nickel     nickel      2021-01 2021-02-05 2021-04-08 1.55    42  0.11  0.06    0.05   0.14    0.24    0.43 False
+                Tin        tin      2021-01 2021-02-05 2022-06-07 1.58   336  1.80  0.09    1.71   0.49    0.63    1.99 False
+Natural gas, Europe     eu_gas      2021-01 2021-02-05 2022-03-07 4.30   272  1.03  0.10    0.93   0.23    0.21    0.70 False
+       Sugar, world    sugar_f      2021-01 2021-02-05 2022-02-07 1.55   253  0.10  0.17   -0.07   0.07    0.14    0.11 False
+    Natural gas, US     us_gas      2021-02 2021-03-05 2021-04-08 3.13    23 -0.03  0.07   -0.10   0.22    0.25    0.92 False
+    Cotton, A Index   cotton_f      2021-02 2021-03-05 2022-08-05 1.53   358  0.18  0.10    0.08  -0.00    0.10    0.39 False
+Softwood lumber PPI     lumber      2021-02 2021-03-19 2021-08-20 1.75   107  0.01  0.14   -0.13   0.03    0.11    0.33 False
+               Urea fertilizer      2021-03 2021-04-08 2022-03-07 1.68   230  0.74  0.04    0.70   0.08    0.23    0.90 False
+   Coal, Australian       coal      2021-03 2021-04-08 2021-12-07 2.81   169  0.91  0.15    0.75   0.47    1.65    2.90 False
+             Potash fertilizer      2021-03 2021-04-08 2022-08-05 1.65   335  0.68  0.03    0.65   0.08    0.23    0.90 False
+      Used cars CPI  used_cars      2021-04 2021-05-21 2022-05-20 2.05   252  0.26 -0.05    0.31   0.05    0.49    0.26 False
+   Crude oil, Brent        oil      2021-06 2021-07-08 2022-01-07 1.57   128  0.15  0.09    0.06   0.10    0.12    0.32 False
+    Coffee, Arabica   coffee_f      2021-07 2021-08-06 2022-04-07 1.61   169  0.28  0.02    0.26   0.19    0.37    0.20 False
+            Lithium    lithium      2021-08 2021-09-22 2022-09-22 1.66   252  0.83 -0.13    0.97   0.05    0.26    0.83 False
+    Natural gas, US     us_gas      2021-09 2021-10-07 2022-01-07 2.56    64 -0.03  0.07   -0.09  -0.04    0.57    0.53 False
+            Uranium    uranium      2021-09 2021-10-21 2021-12-21 3.26    42 -0.15  0.02   -0.17  -0.23   -0.10   -0.24 False
+      Wheat, US HRW       agri      2021-10 2021-11-05 2022-08-05 1.56   187 -0.05 -0.11    0.06  -0.01   -0.03   -0.08 False
+          Aluminium   aluminum      2022-02 2022-03-07 2022-06-07 1.75    64 -0.30 -0.01   -0.29  -0.32   -0.49   -0.31 False
+   Coal, Australian       coal      2022-03 2022-04-07 2022-11-07 1.91   147  0.60 -0.15    0.75   0.08    0.64    0.48 False
+             Nickel     nickel      2022-03 2022-04-07 2022-07-08 2.88    62 -0.26 -0.13   -0.13  -0.28   -0.16   -0.11 False
+   Crude oil, Brent        oil      2022-03 2022-04-07 2022-08-05 1.69    82 -0.05 -0.07    0.02  -0.14    0.06    0.02 False
+           Soybeans       agri      2022-03 2022-04-07 2022-08-05 1.90    82 -0.14 -0.07   -0.07  -0.20   -0.22   -0.17 False
+               Zinc       zinc      2022-03 2022-04-07 2022-06-07 1.52    41 -0.04 -0.07    0.03  -0.40   -0.29   -0.09 False
+              Maize       agri      2022-03 2022-04-07 2022-08-05 2.18    82 -0.14 -0.07   -0.07  -0.20   -0.22   -0.17 False
+ Eggs, retail price       eggs      2022-04 2022-05-20 2023-04-24 1.76   231  0.24  0.08    0.17   0.22    0.19    0.16 False
+            Uranium    uranium      2022-04 2022-05-20 2022-07-22 1.57    42 -0.07  0.02   -0.09  -0.06   -0.01   -0.01 False
+    Natural gas, US     us_gas      2022-05 2022-06-07 2022-11-07 1.65   106 -0.17 -0.08   -0.09  -0.19   -0.30   -0.32 False
+Natural gas, Europe     eu_gas      2022-08 2022-09-08 2022-11-07 1.90    42  0.08 -0.05    0.12   0.05   -0.07    0.03 False
+  Semiconductor PPI      chips      2022-10 2022-11-21 2023-05-19 2.29   123  0.25  0.07    0.18   0.14    0.21    0.52 False
+       Sugar, world    sugar_f      2023-04 2023-05-05 2024-01-08 1.93   169 -0.17  0.16   -0.34  -0.10    0.06   -0.24 False
+               Gold       gold      2023-04 2023-05-05 2023-09-08 1.91    86 -0.20  0.08   -0.28  -0.17   -0.17   -0.02 False
+              Cocoa    cocoa_f      2023-04 2023-05-05 2024-08-07 1.71   315  1.76  0.28    1.48   0.12    0.25    2.09 False
+            Uranium    uranium      2023-09 2023-10-20 2024-05-21 1.61   146  0.37  0.27    0.10   0.25    0.21    0.35 False
+               Gold       gold      2024-04 2024-05-07 2026-05-07 2.12   501  1.74  0.45    1.29   0.02    0.17    0.49 False
+             Silver     silver      2024-07 2024-08-07 2025-02-07 1.68   126  0.25  0.17    0.08   0.31    0.25    0.87 False
+    Coffee, Arabica   coffee_f      2024-09 2024-10-07 2025-07-08 1.93   186  0.17  0.10    0.07   0.31    0.40    0.54 False
+              Cocoa    cocoa_f      2025-01 2025-02-07 2025-04-07 1.82    40 -0.20 -0.16   -0.04  -0.06   -0.12   -0.62 False
+    Natural gas, US     us_gas      2025-01 2025-02-07 2025-05-07 1.86    61  0.02 -0.06    0.09   0.06   -0.05    0.08 False
+           Platinum        pgm      2025-06 2025-07-08 2026-06-05 2.44   230  0.34  0.20    0.14   0.44    1.03    0.19 False
+          Palladium        pgm      2025-10 2025-11-03 2026-04-01 2.08   102  0.31 -0.04    0.34   0.68    0.44    0.05 False
+             Silver     silver      2025-10 2025-11-07 2026-06-05 2.61   143  0.24  0.11    0.13   0.60    0.60     NaN False
+                Tin        tin      2026-01 2026-02-06 2026-11-06 1.64   189  0.17  0.07    0.10   0.26    0.49     NaN False
+    Natural gas, US     us_gas      2026-01 2026-02-06 2026-03-06 2.15    19  0.10 -0.03    0.12   0.01    0.01     NaN False
+             Copper     copper      2026-01 2026-02-06        NaT 1.92   190 -0.11  0.10   -0.21   0.02    0.06     NaN  True
+   Crude oil, Brent        oil      2026-03 2026-04-08 2026-07-08 1.67    62 -0.05  0.11   -0.16  -0.07    0.11     NaN False
+          Aluminium   aluminum      2026-03 2026-04-08 2026-08-07 1.60    84 -0.21  0.15   -0.35  -0.27   -0.36     NaN False
+               Urea fertilizer      2026-04 2026-05-07 2026-07-08 2.55    41 -0.05  0.02   -0.07  -0.06   -0.03     NaN False
+    Cotton, A Index   cotton_f      2026-08 2026-09-08 2026-11-06 1.63    43 -0.04 -0.04   -0.01    NaN     NaN     NaN False
+
+=== EVENT SUMMARY ===
+            set  n   hit  beat_spy  mean_ret  median_ret  mean_excess  avg_days  fwd63   xs63  fwd126  xs126  fwd252  xs252
+            all 71 0.563     0.563     0.200       0.088        0.131   140.761  0.067  0.028   0.169  0.099   0.353  0.217
+  equity themes 62 0.565     0.581     0.197       0.082        0.127   136.113  0.069  0.033   0.171  0.104   0.359  0.231
+ direct futures  9 0.556     0.444     0.220       0.099        0.160   172.778  0.050 -0.014   0.150  0.063   0.309  0.125
+entries 2018-21 40 0.625     0.575     0.245       0.119        0.158   153.925  0.092  0.032   0.228  0.122   0.460  0.310
+entries 2022-26 31 0.484     0.548     0.143      -0.043        0.097   123.774  0.035  0.023   0.090  0.069   0.166  0.057
+
+=== EXPLORATORY SPLITS (in-sample, hypotheses only) ===
+                 set  n   hit  beat_spy  mean_ret  median_ret  mean_excess  avg_days  fwd63   xs63  fwd126  xs126  fwd252  xs252
+                z>=2 24 0.667     0.667     0.306       0.243        0.199   155.625  0.153  0.105   0.336  0.240   0.540  0.388
+                 z<2 47 0.511     0.511     0.146       0.015        0.097   133.170  0.022 -0.013   0.082  0.026   0.259  0.132
+ breadth>=4 items ON 48 0.625     0.625     0.214       0.119        0.157   147.833  0.081  0.047   0.185  0.123   0.361  0.266
+           breadth<4 23 0.435     0.435     0.172      -0.009        0.078   126.000  0.036 -0.014   0.134  0.047   0.337  0.127
+theme above 200d avg 66 0.591     0.591     0.217       0.098        0.146   145.773  0.077  0.037   0.190  0.118   0.394  0.259
+theme below 200d avg  5 0.200     0.200    -0.023      -0.059       -0.067    74.600 -0.067 -0.088  -0.110 -0.149  -0.126 -0.259
+
+=== BY THEME ===
+            n  mean_ret  mean_excess    hit
+theme                                      
+lithium     1     0.834        0.966  1.000
+tin         2     0.984        0.902  1.000
+coal        2     0.754        0.750  1.000
+cocoa_f     3     0.486        0.480  0.333
+fertilizer  4     0.499        0.471  0.750
+eu_gas      3     0.397        0.388  1.000
+used_cars   2     0.383        0.319  1.000
+gold        3     0.463        0.250  0.333
+chips       1     0.250        0.180  1.000
+coffee_f    2     0.230        0.166  1.000
+copper      2     0.322        0.104  0.500
+pgm         5     0.144        0.089  0.600
+eggs        2     0.096        0.043  0.500
+cotton_f    2     0.068        0.037  0.500
+zinc        1    -0.043        0.031  0.000
+agri        6     0.046       -0.008  0.500
+oil         3     0.017       -0.023  0.333
+iron_ore    2     0.161       -0.028  0.500
+lumber      3     0.044       -0.049  0.667
+us_gas      6    -0.056       -0.055  0.333
+uranium     5     0.039       -0.059  0.400
+nickel      3    -0.066       -0.066  0.333
+silver      3     0.123       -0.083  0.667
+aluminum    3    -0.002       -0.130  0.333
+sugar_f     2    -0.037       -0.203  0.500
+
+=== PLACEBO (random entry, same theme) ===
+  h  n_events  actual  random_mean  pctile
+ 63        70   0.067        0.052   0.738
+126        70   0.169        0.109   0.942
+252        63   0.353        0.257   0.906
+
+=== PORTFOLIO 2018-> ===
+                       cagr    vol  sharpe  maxdd  total  avg_invested
+Shortage (rest cash)  0.190  0.194   0.992 -0.287  3.645         0.561
+Shortage (rest SPY)   0.259  0.240   1.078 -0.379  6.629         1.000
+SPY                   0.142  0.190   0.792 -0.337  2.221         1.000
+ACWI                  0.111  0.180   0.674 -0.335  1.534         1.000
+All themes always-on  0.187  0.207   0.933 -0.428  3.563         1.000
+
+=== BY YEAR ===
+      Shortage (rest cash)  Shortage (rest SPY)    SPY   ACWI  All themes always-on
+Date                                                                               
+2018                -0.039               -0.079 -0.046 -0.091                -0.148
+2019                -0.006                0.211  0.312  0.266                 0.139
+2020                 0.179                0.230  0.183  0.163                 0.409
+2021                 0.580                0.580  0.287  0.187                 0.535
+2022                 0.225                0.233 -0.182 -0.184                 0.112
+2023                 0.094                0.175  0.262  0.223                 0.102
+2024                 0.391                0.526  0.249  0.174                 0.133
+2025                 0.449                0.630  0.177  0.224                 0.405
+2026                -0.033               -0.023  0.112  0.112                 0.116
+
+=== SENSITIVITY ===
+ lookback   z  exit_ma   n   hit  mean_excess  cagr_cash  sharpe_cash  cagr_spy  sharpe_spy
+        3 1.0        3 111 0.586        0.111      0.205        1.045     0.285       1.186
+        3 1.0        6  89 0.629        0.139      0.253        1.148     0.306       1.219
+        3 1.0       10  78 0.679        0.249      0.266        1.129     0.310       1.224
+        3 1.5        3  87 0.575        0.089      0.153        0.899     0.238       1.018
+        3 1.5        6  71 0.592        0.114      0.201        0.987     0.276       1.110
+        3 1.5       10  63 0.635        0.222      0.233        1.059     0.288       1.148
+        3 2.0        3  59 0.593        0.103      0.170        1.044     0.268       1.130
+        3 2.0        6  55 0.600        0.117      0.193        0.992     0.272       1.109
+        3 2.0       10  50 0.620        0.222      0.207        1.000     0.267       1.073
+        6 1.0        3 113 0.584        0.093      0.189        0.992     0.263       1.122
+        6 1.0        6  84 0.571        0.127      0.212        0.995     0.277       1.129
+        6 1.0       10  72 0.611        0.247      0.239        1.056     0.284       1.154
+        6 1.5        3  88 0.545        0.099      0.159        0.948     0.248       1.080
+        6 1.5        6  71 0.563        0.131      0.190        0.992     0.259       1.078
+        6 1.5       10  62 0.645        0.263      0.226        1.085     0.277       1.116
+        6 2.0        3  51 0.706        0.183      0.196        1.255     0.310       1.295
+        6 2.0        6  43 0.698        0.219      0.212        1.215     0.298       1.222
+        6 2.0       10  40 0.700        0.354      0.208        1.156     0.286       1.171
+       12 1.0        3 113 0.611        0.089      0.185        0.977     0.273       1.148
+       12 1.0        6  81 0.593        0.132      0.223        1.036     0.281       1.119
+       12 1.0       10  69 0.652        0.218      0.216        0.985     0.269       1.071
+       12 1.5        3  84 0.560        0.103      0.176        1.099     0.283       1.226
+       12 1.5        6  65 0.585        0.123      0.169        0.950     0.250       1.066
+       12 1.5       10  54 0.630        0.237      0.181        0.949     0.244       1.025
+       12 2.0        3  52 0.538        0.134      0.158        1.114     0.275       1.232
+       12 2.0        6  43 0.581        0.169      0.156        1.014     0.263       1.156
+       12 2.0       10  37 0.622        0.288      0.145        0.906     0.242       1.062
+
+=== LIVE ===
+               item                 theme                tickers data_through     z  new_24m_high  chg_6m  stale   state
+       Sugar, world       Sugar (futures)                   SB=F      2026-10  1.96         False    0.34  False     off
+              Cocoa       Cocoa (futures)                   CC=F      2026-10  1.87         False    0.69  False     off
+ Eggs, retail price         Egg producers                   CALM      2025-01  1.66          True    0.61   True no data
+Natural gas, Europe      LNG / Europe gas               LNG,EQNR      2026-10  0.96          True    0.85  False     off
+           Soybeans          Agribusiness                    MOO      2026-10  0.76         False    0.11  False     off
+               Zinc           Zinc miners        TECK,BOL.ST,HBM      2026-10  0.61         False    0.13  False     off
+      Wheat, US HRW          Agribusiness                    MOO      2026-10  0.58         False    0.12  False     off
+  Semiconductor PPI        Semiconductors                    SMH      2025-01  0.48         False   -0.00   True no data
+             Copper         Copper miners                   COPX      2026-10  0.45          True    0.12  False      ON
+Softwood lumber PPI     Timber & sawmills   WY,PCH,WFG.TO,CFP.TO      2025-01  0.38         False    0.11   True no data
+   Coal, Australian   Thermal coal miners BTU,ARLP,WHC.AX,YAL.AX      2026-10  0.31          True    0.16  False     off
+      DAP phosphate  Fertiliser producers      CF,NTR,MOS,YAR.OL      2026-10  0.30          True    0.11  False     off
+    Cotton, A Index      Cotton (futures)                   CT=F      2026-10  0.27         False    0.05  False     off
+              Maize          Agribusiness                    MOO      2026-10  0.26         False    0.06  False     off
+    Natural gas, US      US gas producers         EQT,AR,RRC,CNX      2026-10  0.14         False    0.07  False     off
+                Tin            Tin miners           MLX.AX,AFM.V      2026-10  0.01         False    0.06  False     off
+      Used cars CPI Auto dealers / rental     AN,LAD,PAG,KMX,CAR      2025-01 -0.00         False    0.01   True no data
+   Crude oil, Brent         Oil & gas E&P                    XOP      2026-10 -0.01          True    0.04  False     off
+    Coffee, Arabica      Coffee (futures)                   KC=F      2026-10 -0.14         False    0.01  False     off
+            Uranium        Uranium miners                    URA      2025-06 -0.17         False   -0.01   True no data
+             Potash  Fertiliser producers      CF,NTR,MOS,YAR.OL      2026-10 -0.46         False   -0.11  False     off
+            Lithium     Lithium producers  ALB,SQM,PLS.AX,MIN.AX      2025-06 -0.67         False   -0.20   True no data
+           Iron ore       Iron ore majors    RIO,BHP,VALE,FMG.AX      2026-10 -0.79         False   -0.14  False     off
+             Nickel         Nickel miners     VALE,IGO.AX,NIC.AX      2026-10 -0.94         False   -0.14  False     off
+          Aluminium    Aluminium smelters         AA,CENX,NHY.OL      2026-10 -1.48         False   -0.15  False     off
+           Platinum            PGM miners             SBSW,IMPUY      2026-10 -1.49         False   -0.20  False     off
+             Silver         Silver miners                    SIL      2026-10 -1.71         False   -0.25  False     off
+          Palladium            PGM miners             SBSW,IMPUY      2026-10 -1.76         False   -0.28  False     off
+               Gold           Gold miners                    GDX      2026-10 -1.87         False   -0.13  False     off
+               Urea  Fertiliser producers      CF,NTR,MOS,YAR.OL      2026-10 -2.55         False   -0.51  False     off
