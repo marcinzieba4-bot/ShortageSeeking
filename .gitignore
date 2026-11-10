@@ -3,3 +3,4 @@ __pycache__/
 *.pyc
 outputs/v2/_state.pkl
 outputs/v3/_state.pkl
+outputs/v6/_state.pkl

@@ -395,6 +395,61 @@ cited repeatedly in October 2026 is skilled labour.
 - By source, held alone: price 19.0% (Sharpe 0.99), news 16.7% (1.07), calls 8.2% (0.61).
 - The 50-day in/out rule trades about 13 times a year and loses roughly 9 points of annual return.
 
+## Version 6: the monthly top-3 rotation in detail
+
+`python run6.py` writes `outputs/v6/` and [TRADES.md](TRADES.md) (all 90 trades).
+
+**Rule:** every 21 trading days, from all shortages currently active (price, news or earnings-call signal),
+hold the three whose producer baskets have the highest 6-month return, one third each. A holding whose
+shortage ends is sold at once. Idle money sits in T-bills. 10 bp cost per side.
+
+![rotation vs SPY](outputs/v6/rotation_vs_spy.png)
+
+| | CAGR | Vol | Sharpe | Max DD | Sharpe 2018-22 | Sharpe 2023-26 |
+|---|---|---|---|---|---|---|
+| Monthly rotation | 39.9% | 30.5% | 1.26 | -38% | 0.84 | 1.76 |
+| 500 random monthly portfolios, median | 25.0% | 28.5% | 0.92 | -45% | 0.57 | 1.34 |
+| ... 95th percentile | 33.8% | 29.3% | 1.17 | -39% | 0.92 | 1.64 |
+| Rotation's rank among the 500 | 99.8% | | 99.2% | | 90% | 98% |
+| SPY | 14.2% | 19.0% | 0.79 | -34% | 0.52 | 1.33 |
+
+| Year | Rotation | SPY | Difference |
+|---|---|---|---|
+| 2018 | +1% | -5% | +6 |
+| 2019 | +2% | +31% | -29 |
+| 2020 | +28% | +18% | +10 |
+| 2021 | +73% | +29% | +44 |
+| 2022 | +21% | -18% | +39 |
+| 2023 | +14% | +26% | -12 |
+| 2024 | +106% | +25% | +81 |
+| 2025 | +98% | +18% | +80 |
+| 2026 to date | +52% | +11% | +40 |
+
+90 trades, 61% won, 54% beat SPY, mean +14.5%, median +4.9%, average holding 67 trading days. The ten
+best trades produced 78% of the total gain; the memory trade alone about a seventh.
+
+### Additions tested (one change at a time)
+
+| Change | CAGR | Sharpe | Max DD | Sharpe 2018-22 | Sharpe 2023-26 |
+|---|---|---|---|---|---|
+| Baseline | 39.9% | 1.26 | -38% | 0.84 | 1.76 |
+| Weight by inverse volatility | 39.2% | 1.27 | -37% | 0.86 | 1.78 |
+| 100-day entry gate | 40.6% | 1.29 | -37% | 0.92 | 1.74 |
+| Rank by blend of 3/6/12-month return | 41.7% | 1.29 | -38% | 1.03 | 1.60 |
+| Rank by 12-month return | 39.6% | 1.24 | -42% | 0.97 | 1.56 |
+| Rank by 3-month return | 31.9% | 1.06 | -41% | 0.77 | 1.42 |
+| To cash when SPY is below its 200-day average | 33.2% | 1.24 | -34% | 0.93 | 1.57 |
+| Idle money in SPY | 40.0% | 1.20 | -53% | 0.75 | 1.80 |
+| Only themes with positive 6-month return | 31.0% | 1.10 | -51% | 0.49 | 1.78 |
+| Top 2 | 45.4% | 1.22 | -48% | 0.82 | 1.70 |
+| Top 4 | 29.4% | 1.08 | -35% | 0.76 | 1.49 |
+| Top 5 | 27.7% | 1.12 | -32% | 0.91 | 1.40 |
+| Rebalance every 2 weeks | 32.9% | 1.09 | -50% | 0.75 | 1.49 |
+| 20 bp cost instead of 10 | 39.0% | 1.23 | -38% | 0.81 | 1.75 |
+
+Only inverse-volatility weighting improved both halves, and only marginally. The baseline is already close
+to the best of this family; the differences among the top rows are within noise.
+
 ## Limitations (v1)
 
 - **No memory-chip (DRAM/HBM) test.** I found no free, point-in-time DRAM contract price series. The
