@@ -4,13 +4,46 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 from shortage import config as C
 
-S = pd.read_pickle("outputs/_state.pkl")
+import os, sys
+V2 = "v2" in sys.argv
+S = pd.read_pickle("outputs/v2/_state.pkl" if V2 else "outputs/_state.pkl")
 INK, INK2, SURF, GRID = "#0b0b0b", "#52514e", "#fcfcfb", "#e6e5e0"
 BLUE, ORANGE, AQUA, YELLOW = "#2a78d6", "#eb6834", "#1baf7a", "#eda100"
 plt.rcParams.update({"font.family": "DejaVu Sans", "font.size": 10, "axes.edgecolor": GRID, "axes.labelcolor": INK2,
                      "xtick.color": INK2, "ytick.color": INK2, "figure.facecolor": SURF, "axes.facecolor": SURF,
                      "axes.spines.top": False, "axes.spines.right": False, "axes.grid": True, "grid.color": GRID,
                      "grid.linewidth": 0.6, "axes.axisbelow": True})
+
+if V2:
+    cv = pd.DataFrame(S["curves"]).dropna(); eq = (1 + cv).cumprod()
+    pick = [("E. D + news-only shortage themes", BLUE, "E. Shortage + glut-recovery + news themes", 0),
+            ("B. A + take profit at +100%", ORANGE, "B. Shortage longs, take profit at +100%", 0),
+            ("B. A + take profit at +100% | hedged with SPY", AQUA, "B hedged with SPY", 0), ("SPY", YELLOW, "SPY", 0)]
+    fig, ax = plt.subplots(figsize=(10, 5.2))
+    for col, c, lab, dy in pick:
+        ax.plot(eq.index, eq[col], color=c, lw=2, label=lab)
+        ax.annotate(f"{eq[col].iloc[-1]:.1f}x", (eq.index[-1], eq[col].iloc[-1]), xytext=(6, dy), textcoords="offset points", va="center", color=INK, fontsize=9)
+    ax.axvline(pd.Timestamp(C.V2["split"]), color=INK2, lw=0.8, ls="--")
+    ax.annotate("rules chosen on data left of this line", (pd.Timestamp(C.V2["split"]), 0.62), xytext=(-6, 0), textcoords="offset points", ha="right", color=INK2, fontsize=8.5)
+    ax.set_yscale("log"); ax.set_yticks([1, 2, 4, 8]); ax.set_yticklabels(["1x", "2x", "4x", "8x"]); ax.minorticks_off()
+    ax.set_title("Candidate strategies, growth of 1 since Jan 2018 (log scale, after costs)", loc="left", color=INK, fontsize=12)
+    ax.legend(frameon=False, loc="upper left")
+    fig.tight_layout(); fig.savefig("outputs/v2/candidates.png", dpi=160); plt.close(fig)
+
+    nar, ev = S["nar"], S["ev"]
+    fig, axs = plt.subplots(4, 1, figsize=(10, 8.5), sharex=True)
+    for ax, th in zip(axs, C.SENT_ONLY):
+        n = nar[th]; x = n.index.to_timestamp()
+        ax.plot(x, n.heat_s, color=BLUE, lw=2, label="shortage talk"); ax.plot(x, n.heat_g, color=ORANGE, lw=2, label="glut talk")
+        ax.axhline(2, color=INK2, lw=0.8, ls="--")
+        for e in ev[(ev.kind == "news") & (ev.theme == th) & (ev.side > 0)].itertuples():
+            ax.axvspan(e.entry, e.exit, color=BLUE, alpha=0.12, lw=0)
+        ax.set_yscale("log"); ax.set_yticks([0.5, 1, 2, 4, 8]); ax.set_yticklabels(["0.5x", "1x", "2x", "4x", "8x"]); ax.minorticks_off()
+        ax.set_title(C.THEMES[th]["name"], loc="left", color=INK, fontsize=10)
+    axs[0].legend(frameon=False, ncol=2, loc="upper left", fontsize=8.5)
+    fig.suptitle("News coverage vs its 2-year norm; shaded = theme held long; dashed = entry threshold", x=0.01, ha="left", color=INK, fontsize=12)
+    fig.tight_layout(); fig.savefig("outputs/v2/news_heat.png", dpi=160); plt.close(fig)
+    sys.exit()
 
 # 1 equity curves
 eq = (1 + S["curves"]).cumprod()

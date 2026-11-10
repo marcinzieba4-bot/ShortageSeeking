@@ -132,7 +132,124 @@ These splits were found after the fact, so they are ideas to test going forward,
 
 Full table: `outputs/live_signals.csv`.
 
-## Limitations
+## Version 2: news, gluts, the futures curve, and trade management
+
+Everything in this section was run with one extra safeguard: any rule choice was made on trades entered
+**before 2023** and then judged on trades entered **from 2023 on**. Code is in `shortage/v2.py`, `run2.py`;
+tables are in `outputs/v2/`.
+
+![candidates](outputs/v2/candidates.png)
+
+### What was added
+
+| Addition | How it is measured | Source |
+|---|---|---|
+| News narrative | Monthly count of posts mentioning an industry word with "shortage", and separately with "glut", against that industry's own prior 2-year rate | Hacker News full-text search, 20 industries, 2015 onward |
+| News-only themes | Memory chips (DRAM/HBM), AI accelerators, grid and power equipment, container shipping: no free price series exists, so the news count is the signal | same |
+| Oversupply | Exact mirror of the shortage rule: a 6-month fall 1.5 standard deviations beyond history, at a 24-month low | same price data as v1 |
+| Futures curve | Cash price against 3-month price, and warehouse stocks, for five LME metals; front-month fund against 12-month fund for oil and US gas | LME settlements (Westmetall), fund prices |
+| Commodity expression | Roll-inclusive commodity funds (USO, UNG, CPER, DBB, WEAT, CORN, SOYB, CANE, GLD, SLV, PPLT, PALL), so contango cost is in the return | Yahoo |
+| Trade management | Trailing stops (15%, 25%), profit targets (+50%, +100%), re-entry on a new high after a stop | simulated daily |
+
+### Findings
+
+**1. Shorting gluts does not work; buying when a glut ends might.**
+
+| | Trades | Won | Mean return | Mean vs SPY |
+|---|---|---|---|---|
+| Shortage: long the producers | 71 | 56% | +19.8% | +12.9 |
+| Oversupply: short the producers | 27 | 41% | -6.8% | +5.8 |
+| Glut ends (price back above 6-month average): long producers for 12 months | 27 | 67% | +29.1% | +8.6 |
+
+The short basket lost 2.6% a year with a 56% drawdown. The mirror rule fires near the bottom (April 2020:
+oil, platinum, zinc, Europe gas) and producers then rebound. A shortage-versus-oversupply long-short basket
+(Sharpe 0.65) was worse than shortage longs alone (0.96). Buying at the end of a glut was strong before
+2023 (+22 points over SPY) but lagged SPY by 4 points afterwards, so it is not confirmed.
+
+**2. The best shortage trades are the ones the news has not noticed yet.**
+
+| Price-based shortage signal, news state at entry | Trades | Won | Mean return |
+|---|---|---|---|
+| Shortage coverage below 2x normal | 38 | 61% | +20.1% |
+| Shortage coverage already 2x normal or more | 11 | 36% | +10.9% |
+| News net balance disagrees with the price | 20 | 70% | +19.8% |
+| News net balance agrees | 29 | 45% | +16.8% |
+
+As a holding rule, "stay in after the price exit while shortage talk is still above normal" raised the mean
+trade from +18.1% to +31.8% before 2023, but only from +17.9% to +19.2% on the nine trades after, and at
+portfolio level it did not beat the simpler rule. "Leave when glut talk overtakes" clearly hurt.
+
+**3. News alone found the memory, shipping and power-equipment shortages, on very few trades.**
+
+| News-only long | Entry | Exit | Basket return |
+|---|---|---|---|
+| Container shipping | Feb 2021 | Mar 2022 | +184% |
+| Memory chips (DRAM/HBM) | Dec 2025 | Sep 2026 | +346% |
+| Grid and power equipment | Jun 2023 | Nov 2023 | +23% |
+| AI accelerators | Nov 2020 | Jul 2022 | +4% |
+| Grid and power equipment | Jun 2024 | Aug 2024 | -10% |
+| AI accelerators | Jul 2026 | Oct 2026 | +18% |
+
+Six trades, five winners, median +21%. The mean (+94%) is two trades. News-only glut shorts (three trades)
+were flat. This answers the HBM question from v1, but six trades prove nothing.
+
+![news heat](outputs/v2/news_heat.png)
+
+**4. Producers beat commodity funds; the curve sample is too small to rule on.**
+On the 34 shortage signals where both exist, producers averaged +8.6% and the commodity fund +4.1%. For
+the 16 shortage signals that began in backwardation, producers made +10.4% while the fund lost 7.0%, the
+opposite of the textbook expectation. With 20 curve observations in total this is inconclusive. LME
+stocks were already falling in 9 of 11 metal shortages, so stocks confirm but do not discriminate.
+
+**5. Stops cost return; a profit target helps a little.**
+
+| Shortage longs | CAGR | Sharpe | Max drawdown | Sharpe 2018-22 | Sharpe 2023-26 |
+|---|---|---|---|---|---|
+| A. Price exit only (v1) | 19.0% | 0.99 | -28.7% | 0.94 | 1.05 |
+| B. A + take profit at +100% | 18.9% | 1.09 | -25.7% | 0.97 | 1.28 |
+| C. A + 15% trailing stop | 14.6% | 1.12 | -21.0% | 0.86 | 1.62 |
+| D. A + glut-recovery longs | 24.9% | 1.04 | -42.3% | 0.93 | 1.19 |
+| E. D + news-only shortage themes | 29.0% | 1.16 | -42.3% | 0.92 | 1.45 |
+| B hedged with SPY | 12.0% | 0.84 | -25.3% | 0.82 | 0.86 |
+| SPY | 14.2% | 0.79 | -33.7% | 0.52 | 1.33 |
+
+- **B was the pick on pre-2023 data** (highest Sharpe there) and it held up afterwards.
+- Stops made things worse before 2023 and better after; that is not a stable result. Re-entry after a stop
+  never helped. A +50% target cut too many winners.
+- In 2023-26 none of A to D beat SPY's Sharpe of 1.33. Only E did, and E's edge is the memory trade.
+- Hedged with SPY, the shortage basket earned about 12% a year at Sharpe 0.8 in both periods with a
+  correlation of -0.1 to SPY. That is its most consistent use: a diversifier, not a replacement.
+
+### The strategy that survives
+
+1. **Enter** on the v1 price rule. Skip nothing on news grounds, but size up when coverage is still quiet.
+2. **Express** through producers, not commodity funds.
+3. **Exit** when the price falls below its 6-month average, or take profit at +100%. No trailing stop.
+4. **Re-enter** only on a fresh price signal.
+5. **Do not short gluts.** Put a theme on the watchlist when its glut ends.
+6. **Add news-only themes** (memory, power equipment, shipping, AI chips) at small size: enter when
+   shortage mentions reach 2x their 2-year norm with at least five mentions, exit when back below normal.
+7. **Hedge with SPY** if the goal is an uncorrelated return rather than beating the index.
+
+### Live readings, v2
+
+- Copper is the only price-based shortage on. No oversupply signal is on.
+- All four news-only themes are below their norms. Memory exited in September 2026 after coverage faded.
+- Cocoa's glut ended in June 2026, so it is the one open glut-recovery long (+33% since).
+
+### Additional limitations in v2
+
+- **The news source is one technology forum.** GDELT, the broad news archive I intended to use, refused
+  requests from this environment (the loader is in `shortage/sentiment.py`). Hacker News counts are small
+  (often under ten mentions a month), English-only and tech-biased; farm goods and metals are thin.
+- **I did not "read" the industries.** A model reading old articles today knows how each story ended, so
+  only counted, time-stamped mentions are used.
+- **The curve for grains, softs, coal, uranium and lithium is not measured.** There is no free history of
+  individual contract months.
+- **Short-side costs are a flat 1% a year;** real borrow on small miners can be far higher.
+- The 2023-26 judging period has 19 price-based shortage trades. It is a check, not proof.
+
+## Limitations (v1)
 
 - **No memory-chip (DRAM/HBM) test.** I found no free, point-in-time DRAM contract price series. The
   semiconductor PPI is a weak stand-in (one signal, November 2022). Any monthly price CSV can be added as
@@ -153,9 +270,12 @@ Full table: `outputs/live_signals.csv`.
 
 ```bash
 pip install -r requirements.txt
-python run.py            # uses cached data in data/raw
-python run.py --refresh  # re-download everything
+python run.py            # v1, uses cached data in data/raw
+python run.py --refresh  # re-download prices and commodity data
 python charts.py
+python -m shortage.hn    # refresh news counts (adds new months only)
+python run2.py           # v2 research tables -> outputs/v2
+python charts.py v2
 ```
 
 | File | Contents |

@@ -91,6 +91,32 @@ ITEMS = [
     ("cotton",    "Cotton, A Index",       "wb",  "Cotton, A Index",        "cotton_f"),
 ]
 
+# ---------------------------------------------------------------- v2 additions
+# Themes tracked by news flow only (no free price series for the scarce good itself)
+THEMES.update({
+    "memory":     dict(name="Memory chips (DRAM/HBM)", tickers=["MU", "000660.KS", "WDC", "SNDK"]),
+    "containers": dict(name="Container shipping",      tickers=["MATX", "DAC", "ZIM", "GSL", "CMRE"]),
+    "power_eq":   dict(name="Grid & power equipment",  tickers=["ETN", "HUBB", "PWR", "VRT", "GEV"]),
+    "gpu":        dict(name="AI accelerators",         tickers=["NVDA", "TSM", "AMD"]),
+})
+SENT_ONLY = ["memory", "containers", "power_eq", "gpu"]
+
+# Roll-inclusive commodity funds: their return already contains the cost of contango / gain of backwardation
+COMMODITY_ETF = {"brent": "USO", "us_gas": "UNG", "copper": "CPER", "aluminum": "DBB", "zinc": "DBB",
+                 "wheat": "WEAT", "maize": "CORN", "soybeans": "SOYB", "sugar": "CANE",
+                 "gold": "GLD", "silver": "SLV", "platinum": "PPLT", "palladium": "PALL"}
+CURVE_PAIRS = {"brent": ("USO", "USL"), "us_gas": ("UNG", "UNL")}   # front-month fund vs 12-month fund
+
+V2 = dict(
+    sent_window=24,     # months of history a news series is compared with
+    sent_on=2.0,        # news-only entry: 3-month shortage coverage >= 2x its 24-month norm
+    sent_off=1.0,       # news-only exit: coverage back below its norm
+    sent_min=5,         # ...and at least 5 actual mentions in those 3 months
+    sent_lag=2,         # trading day of next month on which monthly news counts are traded
+    borrow=0.01,        # annual cost of holding a short
+    split="2023-01-01", # rules are chosen on entries before this date and judged on entries after it
+)
+
 BENCH = ["SPY", "ACWI", "BIL"]
 WB_URL = ("https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/"
           "related/CMO-Historical-Data-Monthly.xlsx")

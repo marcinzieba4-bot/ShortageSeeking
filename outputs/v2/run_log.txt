@@ -1,0 +1,199 @@
+
+=== 1. SHORTAGE vs OVERSUPPLY (price signals) ===
+                         set  n   win  beat_spy   mean  median  mean_vs_spy    days
+        shortage: long theme 71 0.563     0.563  0.198   0.086        0.129 140.761
+     oversupply: short theme 27 0.407     0.444 -0.068  -0.050        0.058 119.593
+   oversupply, entries <2023 15 0.333     0.333 -0.103  -0.228       -0.004  89.733
+  oversupply, entries >=2023 12 0.500     0.583 -0.025  -0.005        0.136 156.917
+              label      theme      entry       exit    z  days   ret  excess
+    Natural gas, US     us_gas 2019-06-07 2019-10-07 1.63    84  0.47    0.50
+Natural gas, Europe     eu_gas 2019-06-07 2019-10-07 2.69    84  0.06    0.09
+   Coal, Australian       coal 2019-07-08 2020-02-07 1.88   149  0.50    0.63
+ Eggs, retail price       eggs 2019-07-22 2019-10-21 1.57    64 -0.05   -0.04
+            Lithium    lithium 2019-08-21 2020-12-21 1.76   337 -0.70   -0.41
+                Tin        tin 2019-09-09 2020-01-08 1.62    84  0.48    0.57
+      DAP phosphate fertilizer 2020-01-08 2020-03-06 1.55    40  0.21    0.13
+   Crude oil, Brent        oil 2020-04-07 2020-07-08 2.97    63 -0.35   -0.15
+           Platinum        pgm 2020-04-07 2020-08-07 1.85    85 -0.55   -0.28
+Natural gas, Europe     eu_gas 2020-04-07 2020-09-08 1.78   106 -0.30   -0.04
+               Zinc       zinc 2020-05-07 2020-08-07 1.64    64 -0.29   -0.12
+          Palladium        pgm 2022-01-03 2022-03-01 2.82    39 -0.34   -0.44
+             Silver     silver 2022-10-07 2022-12-07 1.73    42 -0.17   -0.08
+               Gold       gold 2022-10-07 2023-01-09 1.68    63 -0.27   -0.20
+           Iron ore   iron_ore 2022-11-07 2023-01-09 1.87    42 -0.23   -0.20
+          Palladium        pgm 2023-03-01 2024-05-01 2.27   294  0.26    0.55
+    Natural gas, US     us_gas 2023-03-07 2023-08-07 4.43   105 -0.23   -0.09
+               Urea fertilizer 2023-04-10 2023-08-07 2.99    82 -0.04    0.06
+      DAP phosphate fertilizer 2023-06-07 2023-09-08 1.50    64 -0.13   -0.08
+               Zinc       zinc 2023-07-10 2023-10-06 1.75    63  0.01   -0.01
+             Potash fertilizer 2023-07-10 2024-06-07 1.54   231  0.02    0.25
+              Maize       agri 2023-09-08 2024-06-07 2.07   188  0.08    0.30
+      Wheat, US HRW       agri 2023-11-07 2024-06-07 1.53   146 -0.02    0.21
+            Lithium    lithium 2024-01-23 2025-07-22 1.91   374  0.05    0.37
+      Used cars CPI  used_cars 2024-02-22 2024-07-22 1.80   103 -0.10   -0.00
+           Soybeans       agri 2024-04-05 2024-12-06 1.84   170  0.05    0.23
+              Cocoa    cocoa_f 2026-03-06 2026-06-05 3.41    63 -0.25   -0.15
+
+=== 2. EXPRESSION (same signals, 13 items with a commodity fund) ===
+                             set  n   win  beat_spy   mean  median  mean_vs_spy    days
+        shortage long: producers 34 0.441     0.500  0.086  -0.029       -0.004 129.059
+   shortage long: commodity fund 34 0.500     0.412  0.041  -0.010       -0.049 129.059
+     oversupply short: producers 13 0.385     0.385 -0.105  -0.168        0.030 108.154
+oversupply short: commodity fund 13 0.385     0.692 -0.024  -0.034        0.111 108.154
+
+=== 3. CURVE AT ENTRY (LME metals, oil, US gas) ===
+                          set  n   win  beat_spy   mean  median  mean_vs_spy    days  fund_mean
+     shortage + backwardation 16 0.375     0.500  0.104  -0.048        0.072 107.375     -0.070
+          shortage + contango  4 0.500     0.500  0.092   0.040       -0.036  94.750      0.053
+   oversupply + backwardation  1 1.000     1.000  0.475   0.475        0.574  84.000        NaN
+        oversupply + contango  5 0.400     0.200 -0.078  -0.229        0.025  75.800     -0.003
+shortage + LME stocks falling  9 0.333     0.444  0.229  -0.051        0.143 142.333        NaN
+ shortage + LME stocks rising  2 1.000     1.000  0.137   0.137        0.072 115.500        NaN
+
+=== 4. NEWS AT ENTRY (price signals with news history) ===
+                                     set  n   win  beat_spy   mean  median  mean_vs_spy    days
+                   shortage: news agrees 29 0.448     0.517  0.168  -0.030        0.147 125.828
+                shortage: news disagrees 20 0.700     0.550  0.198   0.091        0.111 127.600
+  shortage: coverage already >=2x normal 11 0.364     0.455  0.109  -0.030        0.130  99.091
+           shortage: coverage <2x normal 38 0.605     0.553  0.201   0.091        0.133 134.500
+                 oversupply: news agrees 14 0.429     0.571 -0.068  -0.033        0.080 129.929
+              oversupply: news disagrees  4 0.500     0.500  0.056   0.210        0.172 158.500
+oversupply: coverage already >=2x normal  0   NaN       NaN    NaN     NaN          NaN     NaN
+         oversupply: coverage <2x normal 18 0.444     0.556 -0.041  -0.033        0.100 136.278
+
+=== 4b. NEWS-ONLY THEMES ===
+                     set  n   win  beat_spy   mean  median  mean_vs_spy    days
+news-only shortage: long  6 0.833     0.667  0.944   0.206        0.857 181.500
+   news-only glut: short  3 0.333     0.333 -0.022  -0.002       -0.027  74.667
+                         label  side      entry       exit    z  days   ret  excess  open
+Memory chips (DRAM/HBM) (news)    -1 2018-09-05 2019-03-04 2.27   122  0.04    0.02 False
+        AI accelerators (news)     1 2020-11-03 2022-07-05 2.12   418  0.04   -0.12 False
+     Container shipping (news)     1 2021-02-02 2022-03-02 2.39   272  1.84    1.68 False
+        AI accelerators (news)    -1 2022-10-04 2023-01-04 2.76    63 -0.11   -0.09 False
+ Grid & power equipment (news)     1 2023-06-02 2023-11-02 2.32   106  0.23    0.22 False
+ Grid & power equipment (news)     1 2024-06-04 2024-08-02 2.01    41 -0.10   -0.11 False
+Memory chips (DRAM/HBM) (news)     1 2025-12-02 2026-09-02 5.53   188  3.46    3.33 False
+        AI accelerators (news)    -1 2026-01-05 2026-03-03 2.13    39 -0.00   -0.01 False
+        AI accelerators (news)     1 2026-07-02 2026-10-02 2.43    64  0.18    0.14 False
+
+=== 5. STOPS / TARGETS / RE-ENTRY on shortage longs (tr = entries<2023, te = after) ===
+ stop target  reentry  tr_mean  tr_win  tr_sharpe  tr_maxdd  te_mean  te_win  te_sharpe  te_maxdd  all_cagr
+    -      -    False    0.186   0.558      0.942    -0.261    0.231   0.579      1.054    -0.287     0.190
+    -    0.5    False    0.140   0.558      0.833    -0.257    0.157   0.579      1.380    -0.170     0.166
+    -    1.0    False    0.194   0.558      0.965    -0.257    0.232   0.579      1.282    -0.191     0.189
+ 0.15      -    False    0.123   0.519      0.862    -0.210    0.181   0.474      1.619    -0.112     0.146
+ 0.15      -     True    0.139   0.538      0.829    -0.210    0.195   0.474      1.219    -0.231     0.142
+ 0.15    0.5    False    0.094   0.519      0.801    -0.210    0.089   0.474      1.447    -0.112     0.117
+ 0.15    0.5     True    0.102   0.538      0.709    -0.210    0.131   0.474      1.338    -0.147     0.119
+ 0.15    1.0    False    0.127   0.519      0.881    -0.210    0.142   0.474      1.614    -0.112     0.140
+ 0.15    1.0     True    0.143   0.538      0.817    -0.210    0.155   0.474      1.071    -0.231     0.129
+ 0.25      -    False    0.158   0.558      0.742    -0.270    0.252   0.526      1.257    -0.270     0.155
+ 0.25      -     True    0.162   0.558      0.780    -0.270    0.238   0.526      1.109    -0.308     0.150
+ 0.25    0.5    False    0.127   0.558      0.738    -0.270    0.139   0.526      1.467    -0.174     0.136
+ 0.25    0.5     True    0.127   0.558      0.738    -0.270    0.124   0.526      1.216    -0.216     0.127
+ 0.25    1.0    False    0.167   0.558      0.767    -0.270    0.229   0.526      1.440    -0.220     0.152
+ 0.25    1.0     True    0.171   0.558      0.805    -0.270    0.214   0.526      1.241    -0.260     0.147
+
+=== 6. BASKETS (price signals, producers, base exits) ===
+                basket   cagr   vol  sharpe  maxdd  sharpe_2018_22  sharpe_2023_26  corr_spy
+         Long shortage  0.181 0.193   0.960 -0.287           0.881           1.054     0.428
+      Short oversupply -0.026 0.126  -0.149 -0.564          -0.520           0.392    -0.366
+Shortage vs oversupply  0.125 0.217   0.652 -0.415           0.379           0.987     0.168
+       Shortage vs SPY  0.116 0.168   0.737 -0.327           0.746           0.736    -0.114
+                   SPY  0.142 0.190   0.792 -0.337           0.522           1.329     1.000
+      Long shortage  Short oversupply  Shortage vs oversupply  Shortage vs SPY    SPY
+Date                                                                                 
+2018         -0.039             0.017                  -0.039           -0.021 -0.046
+2019         -0.006             0.279                   0.249           -0.061  0.312
+2020          0.105            -0.370                  -0.299            0.003  0.183
+2021          0.580            -0.001                   0.580            0.214  0.287
+2022          0.225            -0.171                   0.004            0.483 -0.182
+2023          0.094             0.052                   0.100           -0.030  0.262
+2024          0.391             0.105                   0.467            0.277  0.249
+2025          0.449             0.022                   0.425            0.420  0.177
+2026         -0.033            -0.022                  -0.075           -0.097  0.112
+avg long gross 0.56 avg short gross 0.26
+
+=== 7. NEWS AS A HOLDING RULE (shortage longs) ===
+                                        rule  n  tr_n  tr_mean  tr_vs_spy  tr_win  te_n  te_mean  te_vs_spy  te_win    days
+                      base (price exit only) 49    40    0.181      0.139   0.575     9    0.179      0.104   0.444 126.551
+           entry filter: only if news agrees 29    26    0.200      0.186   0.500     3   -0.106     -0.197   0.000 125.828
+entry filter: only if news NOT yet hot (<2x) 38    30    0.199      0.134   0.633     8    0.208      0.127   0.500 134.500
+      hold on while shortage talk stays high 49    40    0.318      0.281   0.650     9    0.192      0.112   0.556 197.980
+           leave on news frenzy (month >=4x) 49    40    0.180      0.135   0.650     9    0.178      0.111   0.444  99.347
+              leave when glut talk overtakes 49    40    0.074      0.060   0.625     9   -0.062     -0.080   0.222  51.367
+
+=== 8. GLUT-RECOVERY LONGS ===
+                         set  n   win  beat_spy  mean  median  mean_vs_spy    days
+buy at end of glut, hold 12m 27 0.667     0.519 0.291   0.180        0.086 246.667
+               entries <2023 13 0.615     0.615 0.455   0.663        0.222 252.000
+              entries >=2023 14 0.714     0.429 0.138   0.077       -0.041 241.714
+              label      theme      entry       exit  days   ret  excess
+    Natural gas, US     us_gas 2019-10-07 2020-10-06   252  0.63    0.46
+Natural gas, Europe     eu_gas 2019-10-07 2020-10-06   252 -0.19   -0.36
+   Coal, Australian       coal 2020-02-07 2021-02-08   252 -0.12   -0.32
+ Eggs, retail price       eggs 2019-10-21 2020-10-20   252 -0.04   -0.21
+            Lithium    lithium 2020-12-21 2021-12-21   252  0.76    0.48
+                Tin        tin 2020-01-08 2021-01-07   252  1.72    1.53
+      DAP phosphate fertilizer 2020-03-06 2021-03-08   252  0.66    0.36
+   Crude oil, Brent        oil 2020-07-08 2021-07-08   252  0.86    0.47
+           Platinum        pgm 2020-08-07 2021-08-09   252  0.73    0.39
+Natural gas, Europe     eu_gas 2020-09-08 2021-09-08   252  0.69    0.32
+               Zinc       zinc 2020-08-07 2021-08-09   252  0.81    0.47
+          Palladium        pgm 2022-03-01 2023-03-02   252 -0.50   -0.44
+             Silver     silver 2022-12-07 2023-12-08   252 -0.08   -0.27
+               Gold       gold 2023-01-09 2024-01-10   252 -0.06   -0.30
+           Iron ore   iron_ore 2023-01-09 2024-01-10   252  0.08   -0.17
+          Palladium        pgm 2024-05-01 2025-05-05   252  0.18    0.04
+    Natural gas, US     us_gas 2023-08-07 2024-08-07   252 -0.09   -0.25
+               Urea fertilizer 2023-08-07 2024-08-07   252 -0.23   -0.40
+      DAP phosphate fertilizer 2023-09-08 2024-09-10   252 -0.23   -0.47
+               Zinc       zinc 2023-10-06 2024-10-08   252  0.41    0.05
+             Potash fertilizer 2024-06-07 2025-06-11   252  0.23    0.09
+              Maize       agri 2024-06-07 2025-06-11   252  0.06   -0.08
+      Wheat, US HRW       agri 2024-06-07 2025-06-11   252  0.06   -0.08
+            Lithium    lithium 2025-07-22 2026-07-23   252  0.88    0.69
+      Used cars CPI  used_cars 2024-07-22 2025-07-24   252  0.23    0.07
+           Soybeans       agri 2024-12-06 2025-12-10   252  0.07   -0.07
+              Cocoa    cocoa_f 2026-06-05 2026-11-09   108  0.33    0.30
+
+=== 9. CANDIDATE STRATEGIES (tr 2018-22, te 2023-26) ===
+                                                    strategy  cagr   vol  sharpe  maxdd  sharpe_tr  sharpe_te  cagr_te  invested
+                                 A. Shortage longs (v1 rule) 0.190 0.194   0.992 -0.287      0.942      1.054    0.218     0.561
+               A. Shortage longs (v1 rule) | hedged with SPY 0.120 0.169   0.757 -0.327      0.783      0.736    0.128     0.561
+                  F. B + hold while shortage talk stays high 0.184 0.181   1.024 -0.259      0.917      1.197    0.200     0.578
+F. B + hold while shortage talk stays high | hedged with SPY 0.106 0.153   0.731 -0.253      0.733      0.728    0.104     0.578
+                                 B. A + take profit at +100% 0.189 0.173   1.089 -0.257      0.965      1.282    0.211     0.535
+               B. A + take profit at +100% | hedged with SPY 0.120 0.149   0.836 -0.253      0.815      0.864    0.122     0.535
+                                    C. A + 15% trailing stop 0.146 0.129   1.120 -0.210      0.862      1.619    0.179     0.382
+                  C. A + 15% trailing stop | hedged with SPY 0.111 0.115   0.975 -0.208      0.769      1.320    0.136     0.382
+                                  D. A + glut-recovery longs 0.249 0.242   1.040 -0.423      0.925      1.185    0.299     0.814
+                D. A + glut-recovery longs | hedged with SPY 0.126 0.199   0.696 -0.283      0.764      0.623    0.118     0.814
+                            E. D + news-only shortage themes 0.290 0.246   1.157 -0.423      0.916      1.449    0.404     0.824
+          E. D + news-only shortage themes | hedged with SPY 0.163 0.198   0.861 -0.283      0.777      0.960    0.207     0.824
+                                                         SPY 0.142 0.190   0.792 -0.337      0.522      1.329    0.208     1.000
+
+=== 10. LIVE ===
+   state       item   since    z  heat_short  heat_glut   net
+shortage     copper 2026-01 0.45         NaN        NaN   NaN
+    news       agri 2026-10  NaN        0.62       0.96 -0.43
+    news   aluminum 2026-10  NaN        1.41       1.07  0.28
+    news      chips 2026-10  NaN        0.90       0.78  0.14
+    news       coal 2026-10  NaN        0.70       1.10 -0.46
+    news    cocoa_f 2026-10  NaN        1.33       1.23  0.08
+    news containers 2026-10  NaN        0.72       0.71  0.02
+    news     copper 2026-10  NaN        0.89       0.71  0.23
+    news       eggs 2026-10  NaN        0.36       0.54 -0.40
+    news     eu_gas 2026-10  NaN        0.87       1.07 -0.21
+    news fertilizer 2026-10  NaN        0.62       1.00 -0.48
+    news        gpu 2026-10  NaN        0.68       0.51  0.29
+    news    lithium 2026-10  NaN        0.46       0.86 -0.62
+    news     lumber 2026-10  NaN        1.26       0.92  0.31
+    news     memory 2026-10  NaN        0.75       0.68  0.11
+    news     nickel 2026-10  NaN        0.75       1.23 -0.49
+    news        oil 2026-10  NaN        0.77       0.61  0.23
+    news   power_eq 2026-10  NaN        0.89       0.95 -0.06
+    news    uranium 2026-10  NaN        0.65       0.86 -0.27
+    news     us_gas 2026-10  NaN        0.97       0.75  0.25
+    news  used_cars 2026-10  NaN        0.50       1.12 -0.81
+open recovery longs: [('Cocoa', datetime.date(2026, 6, 5))]
