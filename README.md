@@ -352,6 +352,25 @@ cited repeatedly in October 2026 is skilled labour.
 [PV oversupply](https://www.pv-magazine.com/2026/08/28/global-pv-additions-forecast-to-reach-638-gw-in-2026/) ·
 [Xeneta container outlook](https://www.seatrade-maritime.com/containers/supply-chain-damage-already-done-says-xeneta)
 
+## Version 4: rotation, moving-average filters, "still accelerating"
+
+`python run4.py` writes `outputs/v4/`. Price-based shortage signals, producers, Jan 2018 to Nov 2026.
+
+| Rule | CAGR | Sharpe | Max drawdown | Sharpe 2018-22 | Sharpe 2023-26 |
+|---|---|---|---|---|---|
+| Base: hold every active shortage (20% cap each) | 18.0% | 0.95 | -29% | 0.91 | 1.00 |
+| Hold only while still accelerating (z at least 0.5) | 19.8% | 1.03 | -29% | 0.93 | 1.16 |
+| Rotate quarterly into the 3 strongest shortages | 26.3% | 1.11 | -38% | 1.32 | 0.99 |
+| Rotate monthly into the 3 strongest shortages | 27.5% | 1.07 | -40% | 1.08 | 1.08 |
+| Rotate monthly into the single strongest | 27.1% | 0.77 | -68% | 0.52 | 1.08 |
+| Hold only while theme is above its 100-day average (checked daily) | 12.1% | 0.77 | -30% | 0.64 | 0.94 |
+| Hold only while theme is above its 200-day average (checked daily) | 14.9% | 0.84 | -29% | 0.76 | 0.94 |
+| SPY | 14.2% | 0.79 | -34% | 0.52 | 1.33 |
+
+- Rotation into the top 3 raises return mainly by concentrating (33% a theme instead of 20%); Sharpe improves a little, drawdown gets worse.
+- A daily moving-average switch whipsaws and costs 3 to 6 points a year.
+- As a one-time check on the entry day it helps: 64 trades entered above the 100-day average won 59% (mean +22%); the 7 entered below won 29% (mean +0.5%).
+
 ## Limitations (v1)
 
 - **No memory-chip (DRAM/HBM) test.** I found no free, point-in-time DRAM contract price series. The
