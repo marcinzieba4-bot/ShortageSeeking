@@ -397,6 +397,12 @@ cited repeatedly in October 2026 is skilled labour.
 
 ## Version 6: the monthly top-3 rotation in detail
 
+**Full report with charts and every trade's rationale:** `report/shortage-rotation-report.html`
+(rebuild with `python run6.py && python build_report.py`). The numbers below predate the extension of the
+earnings-call data to May 2026 (second dataset `Rogersurf/earnings-call-transcripts`, 2,529 S&P 500 calls,
+0.98 correlation with the first on the 764 overlapping calls); with it the rotation returns 39.6% a year,
+Sharpe 1.24, over 91 trades.
+
 `python run6.py` writes `outputs/v6/` and [TRADES.md](TRADES.md) (all 90 trades).
 
 **Rule:** every 21 trading days, from all shortages currently active (price, news or earnings-call signal),

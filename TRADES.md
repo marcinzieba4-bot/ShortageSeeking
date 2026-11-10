@@ -2,95 +2,96 @@
 
 Return is the theme basket over the holding period; each position is one third of the portfolio.
 
-| # | Theme | Signal | Buy | Sell | Days | Return | SPY | vs SPY |
+| # | Theme | Buy | Sell | Days | Return | SPY | Why bought | Why sold |
 |---|---|---|---|---|---|---|---|---|
-| 1 | Electric power / grid connection | calls | 2018-01-02 | 2018-02-01 | 21 | -1.1% | +4.8% | -5.9% |
-| 2 | Memory chips (DRAM/HBM) | calls | 2018-01-02 | 2018-03-02 | 41 | +7.8% | +0.1% | +7.7% |
-| 3 | Semiconductors | news | 2018-01-02 | 2018-01-03 | 1 | +1.4% | +0.6% | +0.8% |
-| 4 | AI accelerators | news | 2018-02-01 | 2018-05-03 | 63 | -11.9% | -6.4% | -5.5% |
-| 5 | LNG / Europe gas | price | 2018-02-01 | 2018-12-10 | 215 | +3.2% | -5.0% | +8.2% |
-| 6 | Oil & gas E&P | calls | 2018-03-05 | 2018-06-04 | 63 | +18.7% | +1.4% | +17.3% |
-| 7 | Steel | calls | 2018-05-03 | 2018-07-03 | 42 | +1.7% | +3.6% | -1.9% |
-| 8 | AI accelerators | news | 2018-06-04 | 2018-09-05 | 65 | +33.6% | +5.6% | +28.0% |
-| 9 | Oil & gas E&P | calls | 2018-07-03 | 2018-10-31 | 84 | -15.4% | +0.4% | -15.7% |
-| 10 | Steel | calls | 2018-10-02 | 2018-11-02 | 23 | -9.5% | -6.7% | -2.7% |
-| 11 | Skilled labour | calls | 2018-10-31 | 2019-03-04 | 82 | +7.2% | +3.8% | +3.3% |
-| 12 | Uranium miners | price | 2018-11-30 | 2019-04-22 | 95 | -0.4% | +6.4% | -6.8% |
-| 13 | Housing / lots | calls | 2019-01-03 | 2019-04-02 | 61 | +19.8% | +17.6% | +2.2% |
-| 14 | PGM miners | price | 2019-03-06 | 2019-06-03 | 61 | +0.9% | -0.6% | +1.5% |
-| 15 | US gas producers | calls | 2019-04-04 | 2019-05-02 | 19 | -13.9% | +1.4% | -15.2% |
-| 16 | Thermal coal miners | news | 2019-06-04 | 2019-12-03 | 127 | -31.0% | +11.4% | -42.4% |
-| 17 | US gas producers | news | 2019-06-04 | 2019-08-05 | 43 | -32.3% | +1.7% | -33.9% |
-| 18 | Timber & sawmills | calls | 2019-06-04 | 2019-08-05 | 43 | -1.2% | +1.7% | -2.9% |
-| 19 | Water | calls | 2019-08-05 | 2019-12-03 | 84 | +5.5% | +9.6% | -4.1% |
-| 20 | Iron ore majors | price | 2019-08-05 | 2019-09-09 | 24 | +7.4% | +5.1% | +2.4% |
-| 21 | US gas producers | news | 2019-10-03 | 2019-11-01 | 21 | +10.2% | +5.4% | +4.8% |
-| 22 | Nickel miners | price | 2019-11-01 | 2019-12-06 | 24 | -5.8% | +2.9% | -8.7% |
-| 23 | US gas producers | news | 2019-12-03 | 2020-01-03 | 21 | +30.2% | +4.7% | +25.5% |
-| 24 | PGM miners | price | 2020-03-02 | 2020-06-01 | 63 | -9.1% | -0.6% | -8.6% |
-| 25 | Cocoa (futures) | price | 2020-04-03 | 2020-04-07 | 2 | +6.4% | +6.8% | -0.4% |
-| 26 | Container shipping | calls | 2020-05-05 | 2020-08-04 | 63 | +15.5% | +15.8% | -0.3% |
-| 27 | Uranium miners | price | 2020-07-06 | 2020-10-02 | 63 | -1.9% | +5.7% | -7.6% |
-| 28 | Egg producers | calls | 2020-08-04 | 2020-09-02 | 21 | -12.1% | +8.4% | -20.5% |
-| 29 | Timber & sawmills | price | 2020-09-02 | 2021-02-03 | 105 | +25.1% | +7.6% | +17.5% |
-| 30 | Gold miners | price | 2020-09-02 | 2020-10-02 | 21 | -6.7% | -6.3% | -0.4% |
-| 31 | Silver miners | price | 2020-10-02 | 2020-11-02 | 21 | -0.0% | -1.1% | +1.1% |
-| 32 | Auto dealers / rental | price | 2020-10-02 | 2020-12-02 | 42 | +15.1% | +9.9% | +5.3% |
-| 33 | Copper miners | price | 2020-11-02 | 2021-02-03 | 63 | +46.2% | +16.1% | +30.0% |
-| 34 | AI accelerators | news | 2020-12-02 | 2021-02-03 | 42 | +6.8% | +4.5% | +2.2% |
-| 35 | Aero engines / castings / titanium | calls | 2021-02-03 | 2021-03-05 | 21 | +15.5% | +0.5% | +15.0% |
-| 36 | Thermal coal miners | news | 2021-02-03 | 2021-03-05 | 21 | -0.5% | +0.5% | -1.0% |
-| 37 | Container shipping | news | 2021-02-03 | 2021-10-04 | 168 | +110.8% | +13.4% | +97.5% |
-| 38 | Aluminium smelters | price | 2021-03-05 | 2021-06-04 | 63 | +7.8% | +10.5% | -2.7% |
-| 39 | Tin miners | price | 2021-03-05 | 2021-11-02 | 168 | +92.4% | +21.6% | +70.9% |
-| 40 | Thermal coal miners | price+news | 2021-06-04 | 2021-07-06 | 21 | +7.2% | +2.8% | +4.4% |
-| 41 | US gas producers | news | 2021-07-06 | 2021-08-04 | 21 | -8.6% | +1.4% | -10.0% |
-| 42 | Aluminium smelters | price | 2021-08-04 | 2021-09-02 | 21 | +6.0% | +3.2% | +2.8% |
-| 43 | Thermal coal miners | price+news | 2021-09-02 | 2021-12-02 | 63 | -7.6% | +1.3% | -8.8% |
-| 44 | Coffee (futures) | price | 2021-10-04 | 2021-11-02 | 21 | +3.8% | +7.8% | -3.9% |
-| 45 | US gas producers | price+news | 2021-11-02 | 2021-12-02 | 21 | -15.6% | -1.0% | -14.6% |
-| 46 | Auto dealers / rental | price+news+calls | 2021-11-02 | 2022-01-03 | 42 | -14.6% | +3.8% | -18.4% |
-| 47 | AI accelerators | news | 2021-12-02 | 2022-01-03 | 21 | -0.0% | +4.8% | -4.8% |
-| 48 | Tin miners | price | 2021-12-02 | 2022-06-03 | 126 | +13.1% | -9.6% | +22.8% |
-| 49 | Thermal coal miners | news | 2022-01-03 | 2022-04-04 | 63 | +79.8% | -4.1% | +83.9% |
-| 50 | Coffee (futures) | price | 2022-01-03 | 2022-02-02 | 21 | +6.9% | -4.3% | +11.2% |
-| 51 | Container shipping | news+calls | 2022-02-02 | 2022-03-04 | 21 | +4.2% | -5.5% | +9.7% |
-| 52 | Aluminium smelters | news | 2022-03-04 | 2022-05-04 | 42 | -29.7% | -0.4% | -29.3% |
-| 53 | US gas producers | news | 2022-04-04 | 2022-10-04 | 126 | +0.9% | -16.6% | +17.4% |
-| 54 | Thermal coal miners | price+news | 2022-05-04 | 2023-01-04 | 168 | +38.6% | -9.4% | +48.0% |
-| 55 | Oil & gas E&P | price+news | 2022-06-03 | 2022-07-06 | 21 | -30.1% | -6.2% | -23.8% |
-| 56 | Egg producers | price | 2022-07-06 | 2022-09-02 | 42 | +8.5% | +2.3% | +6.2% |
-| 57 | Lithium producers | price+news | 2022-09-02 | 2023-05-02 | 165 | -5.2% | +6.1% | -11.2% |
-| 58 | LNG / Europe gas | price+news | 2022-10-04 | 2022-12-02 | 42 | +4.7% | +7.7% | -3.0% |
-| 59 | Egg producers | price | 2022-12-02 | 2023-05-05 | 105 | -9.1% | +2.3% | -11.4% |
-| 60 | Copper miners | news | 2023-01-04 | 2023-02-02 | 20 | +11.8% | +8.6% | +3.2% |
-| 61 | Semiconductors | price | 2023-02-03 | 2023-05-19 | 73 | +7.1% | +1.9% | +5.2% |
-| 62 | Gold miners | price | 2023-05-05 | 2023-06-06 | 21 | -10.6% | +3.7% | -14.4% |
-| 63 | Sugar (futures) | price | 2023-05-05 | 2024-01-08 | 169 | -17.4% | +16.3% | -33.7% |
-| 64 | Grid & power equipment | news | 2023-06-06 | 2023-11-02 | 104 | +23.2% | +1.4% | +21.9% |
-| 65 | Cocoa (futures) | price | 2023-06-06 | 2024-08-07 | 294 | +182.0% | +23.3% | +158.6% |
-| 66 | Uranium miners | price | 2023-11-03 | 2024-05-21 | 136 | +30.1% | +23.1% | +7.0% |
-| 67 | AI accelerators | calls | 2024-02-06 | 2024-07-02 | 101 | +39.7% | +11.8% | +27.9% |
-| 68 | Grid & power equipment | news | 2024-06-06 | 2024-08-02 | 39 | -7.6% | -0.0% | -7.6% |
-| 69 | Gold miners | price | 2024-07-09 | 2024-11-05 | 84 | +11.1% | +4.1% | +7.0% |
-| 70 | Electric power / grid connection | calls | 2024-08-07 | 2024-12-03 | 82 | +66.4% | +16.8% | +49.6% |
-| 71 | Silver miners | price | 2024-08-07 | 2024-10-07 | 42 | +18.6% | +9.8% | +8.7% |
-| 72 | Coffee (futures) | price | 2024-10-07 | 2025-07-08 | 186 | +17.5% | +10.3% | +7.2% |
-| 73 | Silver miners | price | 2024-11-05 | 2025-02-07 | 63 | -4.5% | +4.5% | -9.1% |
-| 74 | Gold miners | price | 2024-12-05 | 2025-03-11 | 63 | +12.8% | -8.1% | +20.8% |
-| 75 | US gas producers | price | 2025-02-07 | 2025-05-07 | 61 | +2.2% | -6.3% | +8.5% |
-| 76 | Egg producers | price+news | 2025-03-11 | 2025-04-09 | 21 | +5.6% | -1.0% | +6.7% |
-| 77 | Gold miners | price | 2025-04-09 | 2025-12-09 | 168 | +82.1% | +25.2% | +56.9% |
-| 78 | Egg producers | news | 2025-05-09 | 2025-08-04 | 58 | +16.1% | +12.2% | +3.9% |
-| 79 | PGM miners | price | 2025-07-11 | 2026-02-10 | 147 | +94.4% | +11.6% | +82.8% |
-| 80 | Silver miners | price | 2025-11-07 | 2026-05-12 | 126 | +60.2% | +10.6% | +49.5% |
-| 81 | Memory chips (DRAM/HBM) | news | 2025-12-09 | 2026-09-02 | 183 | +325.5% | +13.0% | +312.5% |
-| 82 | Copper miners | price | 2026-02-10 | 2026-03-12 | 21 | -9.6% | -3.8% | -5.9% |
-| 83 | Tin miners | price | 2026-03-12 | 2026-04-13 | 21 | +5.1% | +3.3% | +1.9% |
-| 84 | Aluminium smelters | price | 2026-04-13 | 2026-07-14 | 63 | -27.0% | +9.9% | -36.9% |
-| 85 | Tin miners | price | 2026-05-12 | 2026-07-14 | 42 | -5.5% | +2.1% | -7.6% |
-| 86 | LNG / Europe gas | news | 2026-07-14 | 2026-08-04 | 15 | +2.6% | +2.6% | +0.0% |
-| 87 | AI accelerators | news | 2026-07-14 | 2026-10-02 | 57 | +13.9% | +2.6% | +11.3% |
-| 88 | Tin miners | price | 2026-08-12 | 2026-11-06 | 61 | -17.7% | -4.6% | -13.1% |
-| 89 | Cotton (futures) | price | 2026-09-11 | 2026-11-06 | 40 | -4.0% | -3.6% | -0.4% |
-| 90 | Copper miners | price | 2026-10-12 | open | 20 | -11.8% | -3.3% | -8.6% |
+| 1 | Semiconductors (SMH) | 2018-01-02 | 2018-01-03 | 1 | +1.4% | +0.6% | shortage mentions in forum news at 1.0x their 2-year norm (4 in 3 months); basket 6-month return +26%, ranked 2 of 5 active shortages | shortage signal ended |
+| 2 | Memory chips (DRAM/HBM) (MU, 000660.KS, WDC, SNDK) | 2018-01-02 | 2018-03-02 | 41 | +7.8% | +0.1% | 5 S&P 500 companies cited a shortage of it on earnings calls, 1.7x the 2-year norm; basket 6-month return +20%, ranked 3 of 5 active shortages | shortage signal ended |
+| 3 | Electric power / grid connection (VST, CEG, TLN, NRG) | 2018-01-02 | 2018-02-01 | 21 | -1.1% | +4.8% | 3 S&P 500 companies cited a shortage of it on earnings calls, 1.8x the 2-year norm; basket 6-month return +37%, ranked 1 of 5 active shortages | rotated out: rank fell to 5 of 5 |
+| 4 | AI accelerators (NVDA, TSM, AMD) | 2018-02-01 | 2018-05-03 | 63 | -11.9% | -6.4% | shortage mentions in forum news at 1.7x their 2-year norm (4 in 3 months); basket 6-month return +24%, ranked 2 of 5 active shortages | rotated out: rank fell to 4 of 5 |
+| 5 | LNG / Europe gas (LNG, EQNR) | 2018-02-01 | 2018-12-10 | 215 | +3.2% | -5.0% | Natural gas, Europe price up +46% in 6 months, 1.7 standard deviations above its norm; basket 6-month return +29%, ranked 1 of 5 active shortages | shortage signal ended |
+| 6 | Oil & gas E&P (XOP) | 2018-03-05 | 2018-06-04 | 63 | +18.7% | +1.4% | 5 S&P 500 companies cited a shortage of it on earnings calls, 2.9x the 2-year norm; basket 6-month return +16%, ranked 3 of 3 active shortages | rotated out: rank fell to 4 of 6 |
+| 7 | Steel (NUE, STLD, CLF, SLX) | 2018-05-03 | 2018-07-03 | 42 | +1.7% | +3.6% | 3 S&P 500 companies cited a shortage of it on earnings calls, 2.3x the 2-year norm; basket 6-month return +18%, ranked 2 of 5 active shortages | rotated out: rank fell to 5 of 6 |
+| 8 | AI accelerators (NVDA, TSM, AMD) | 2018-06-04 | 2018-09-05 | 65 | +33.6% | +5.6% | shortage mentions in forum news at 2.3x their 2-year norm (11 in 3 months); basket 6-month return +24%, ranked 2 of 6 active shortages | shortage signal ended |
+| 9 | Oil & gas E&P (XOP) | 2018-07-03 | 2018-10-31 | 84 | -15.4% | +0.4% | 2 S&P 500 companies cited a shortage of it on earnings calls, 1.2x the 2-year norm; basket 6-month return +12%, ranked 3 of 6 active shortages | rotated out: rank fell to 4 of 6 |
+| 10 | Steel (NUE, STLD, CLF, SLX) | 2018-10-02 | 2018-11-02 | 23 | -9.5% | -6.7% | 1 S&P 500 companies cited a shortage of it on earnings calls, 1.2x the 2-year norm; basket 6-month return +22%, ranked 3 of 5 active shortages | shortage signal ended |
+| 11 | Skilled labour (PWR, EME, FIX, RHI) | 2018-10-31 | 2019-03-04 | 82 | +7.2% | +3.8% | 27 S&P 500 companies cited a shortage of it on earnings calls, 2.0x the 2-year norm; basket 6-month return +3%, ranked 2 of 6 active shortages | shortage signal ended |
+| 12 | Uranium miners (URA) | 2018-11-30 | 2019-04-22 | 95 | -0.4% | +6.4% | Uranium price up +32% in 6 months, 2.0 standard deviations above its norm; basket 6-month return -9%, ranked 3 of 5 active shortages | shortage signal ended |
+| 13 | Housing / lots (DHI, LEN, BLDR, ITB) | 2019-01-03 | 2019-04-02 | 61 | +19.8% | +17.6% | 15 S&P 500 companies cited a shortage of it on earnings calls, 1.1x the 2-year norm; basket 6-month return -24%, ranked 3 of 5 active shortages | shortage signal ended |
+| 14 | PGM miners (SBSW, IMPUY) | 2019-03-06 | 2019-06-03 | 61 | +0.9% | -0.6% | Palladium price up +57% in 6 months, 1.7 standard deviations above its norm; basket 6-month return +147%, ranked 1 of 4 active shortages | shortage signal ended |
+| 15 | US gas producers (EQT, AR, RRC, CNX) | 2019-04-04 | 2019-05-02 | 19 | -13.9% | +1.4% | 3 S&P 500 companies cited a shortage of it on earnings calls, 1.5x the 2-year norm; basket 6-month return -33%, ranked 3 of 3 active shortages | shortage signal ended |
+| 16 | US gas producers (EQT, AR, RRC, CNX) | 2019-06-04 | 2019-08-05 | 43 | -32.3% | +1.7% | shortage mentions in forum news at 3.0x their 2-year norm (9 in 3 months); basket 6-month return -34%, ranked 3 of 3 active shortages | rotated out: rank fell to 5 of 5 |
+| 17 | Timber & sawmills (WY, PCH, WFG.TO, CFP.TO) | 2019-06-04 | 2019-08-05 | 43 | -1.2% | +1.7% | 3 S&P 500 companies cited a shortage of it on earnings calls, 2.0x the 2-year norm; basket 6-month return -28%, ranked 2 of 3 active shortages | rotated out: rank fell to 4 of 5 |
+| 18 | Thermal coal miners (BTU, ARLP, WHC.AX, YAL.AX) | 2019-06-04 | 2019-12-03 | 127 | -31.0% | +11.4% | shortage mentions in forum news at 2.2x their 2-year norm (11 in 3 months); basket 6-month return -4%, ranked 1 of 3 active shortages | shortage signal ended |
+| 19 | Iron ore majors (RIO, BHP, VALE, FMG.AX) | 2019-08-05 | 2019-09-09 | 24 | +7.4% | +5.1% | Iron ore price up +57% in 6 months, 1.8 standard deviations above its norm; basket 6-month return +9%, ranked 2 of 5 active shortages | shortage signal ended |
+| 20 | Water (AWK, XYL, PHO) | 2019-08-05 | 2019-12-03 | 84 | +5.5% | +9.6% | 3 S&P 500 companies cited a shortage of it on earnings calls, 2.1x the 2-year norm; basket 6-month return +13%, ranked 1 of 5 active shortages | shortage signal ended |
+| 21 | US gas producers (EQT, AR, RRC, CNX) | 2019-10-03 | 2019-11-01 | 21 | +10.2% | +5.4% | shortage mentions in forum news at 1.5x their 2-year norm (5 in 3 months); basket 6-month return -55%, ranked 3 of 3 active shortages | rotated out: rank fell to 4 of 4 |
+| 22 | Nickel miners (VALE, IGO.AX, NIC.AX) | 2019-11-01 | 2019-12-06 | 24 | -5.8% | +2.9% | Nickel price up +36% in 6 months, 1.5 standard deviations above its norm; basket 6-month return +34%, ranked 1 of 4 active shortages | shortage signal ended |
+| 23 | US gas producers (EQT, AR, RRC, CNX) | 2019-12-03 | 2020-01-03 | 21 | +30.2% | +4.7% | shortage mentions in forum news at 1.2x their 2-year norm (4 in 3 months); basket 6-month return -50%, ranked 2 of 2 active shortages | shortage signal ended |
+| 24 | PGM miners (SBSW, IMPUY) | 2020-03-02 | 2020-06-01 | 63 | -9.1% | -0.6% | Palladium price up +69% in 6 months, 2.5 standard deviations above its norm; basket 6-month return +57%, ranked 1 of 1 active shortages | shortage signal ended |
+| 25 | Cocoa (futures) (CC=F) | 2020-04-03 | 2020-04-07 | 2 | +6.4% | +6.8% | Cocoa price up +24% in 6 months, 1.7 standard deviations above its norm; basket 6-month return -10%, ranked 1 of 2 active shortages | shortage signal ended |
+| 26 | Container shipping (MATX, DAC, ZIM, GSL, CMRE) | 2020-05-05 | 2020-08-04 | 63 | +15.5% | +15.8% | 3 S&P 500 companies cited a shortage of it on earnings calls, 2.0x the 2-year norm; basket 6-month return -40%, ranked 2 of 2 active shortages | shortage signal ended |
+| 27 | Uranium miners (URA) | 2020-07-06 | 2020-10-02 | 63 | -1.9% | +5.7% | Uranium price up +34% in 6 months, 1.9 standard deviations above its norm; basket 6-month return +2%, ranked 1 of 2 active shortages | rotated out: rank fell to 7 of 8 |
+| 28 | Egg producers (CALM) | 2020-08-04 | 2020-09-02 | 21 | -12.1% | +8.4% | 3 S&P 500 companies cited a shortage of it on earnings calls, 2.2x the 2-year norm; basket 6-month return +25%, ranked 1 of 2 active shortages | rotated out: rank fell to 5 of 5 |
+| 29 | Timber & sawmills (WY, PCH, WFG.TO, CFP.TO) | 2020-09-02 | 2021-02-03 | 105 | +25.1% | +7.6% | Softwood lumber PPI price up +26% in 6 months, 2.3 standard deviations above its norm; basket 6-month return +42%, ranked 1 of 5 active shortages | rotated out: rank fell to 9 of 16 |
+| 30 | Gold miners (GDX) | 2020-09-02 | 2020-10-02 | 21 | -6.7% | -6.3% | Gold price up +18% in 6 months, 1.5 standard deviations above its norm; basket 6-month return +40%, ranked 2 of 5 active shortages | rotated out: rank fell to 4 of 8 |
+| 31 | Auto dealers / rental (AN, LAD, PAG, KMX, CAR) | 2020-10-02 | 2020-12-02 | 42 | +15.1% | +9.9% | Used cars CPI price up +9% in 6 months, 2.3 standard deviations above its norm; basket 6-month return +166%, ranked 1 of 8 active shortages | rotated out: rank fell to 4 of 12 |
+| 32 | Silver miners (SIL) | 2020-10-02 | 2020-11-02 | 21 | -0.0% | -1.1% | Silver price up +51% in 6 months, 2.2 standard deviations above its norm; basket 6-month return +84%, ranked 3 of 8 active shortages | rotated out: rank fell to 5 of 8 |
+| 33 | Copper miners (COPX) | 2020-11-02 | 2021-02-03 | 63 | +46.2% | +16.1% | Copper price up +29% in 6 months, 2.2 standard deviations above its norm; basket 6-month return +55%, ranked 3 of 8 active shortages | rotated out: rank fell to 4 of 16 |
+| 34 | AI accelerators (NVDA, TSM, AMD) | 2020-12-02 | 2021-02-03 | 42 | +6.8% | +4.5% | shortage mentions in forum news at 2.0x their 2-year norm (5 in 3 months); basket 6-month return +75%, ranked 1 of 12 active shortages | rotated out: rank fell to 13 of 16 |
+| 35 | Aero engines / castings / titanium (HWM, ATI, CRS, GE, TDG) | 2021-02-03 | 2021-03-05 | 21 | +15.5% | +0.5% | 2 S&P 500 companies cited a shortage of it on earnings calls, 1.8x the 2-year norm; basket 6-month return +68%, ranked 2 of 16 active shortages | rotated out: rank fell to 5 of 22 |
+| 36 | Container shipping (MATX, DAC, ZIM, GSL, CMRE) | 2021-02-03 | 2021-10-04 | 168 | +110.8% | +13.4% | shortage mentions in forum news at 2.4x their 2-year norm (7 in 3 months); basket 6-month return +192%, ranked 1 of 16 active shortages | rotated out: rank fell to 5 of 25 |
+| 37 | Thermal coal miners (BTU, ARLP, WHC.AX, YAL.AX) | 2021-02-03 | 2021-03-05 | 21 | -0.5% | +0.5% | shortage mentions in forum news at 1.9x their 2-year norm (9 in 3 months); basket 6-month return +57%, ranked 3 of 16 active shortages | rotated out: rank fell to 4 of 22 |
+| 38 | Tin miners (MLX.AX, AFM.V) | 2021-03-05 | 2021-11-02 | 168 | +92.4% | +21.6% | Tin price up +49% in 6 months, 2.8 standard deviations above its norm; basket 6-month return +128%, ranked 2 of 22 active shortages | rotated out: rank fell to 4 of 27 |
+| 39 | Aluminium smelters (AA, CENX, NHY.OL) | 2021-03-05 | 2021-06-04 | 63 | +7.8% | +10.5% | Aluminium price up +20% in 6 months, 1.7 standard deviations above its norm; basket 6-month return +85%, ranked 3 of 22 active shortages | rotated out: rank fell to 8 of 25 |
+| 40 | Thermal coal miners (BTU, ARLP, WHC.AX, YAL.AX) | 2021-06-04 | 2021-07-06 | 21 | +7.2% | +2.8% | Coal, Australian price up +58% in 6 months, 2.3 standard deviations above its norm; shortage mentions in forum news at 1.8x their 2-year norm (9 in 3 months); basket 6-month return +105%, ranked 3 of 25 active shortages | rotated out: rank fell to 5 of 24 |
+| 41 | US gas producers (EQT, AR, RRC, CNX) | 2021-07-06 | 2021-08-04 | 21 | -8.6% | +1.4% | shortage mentions in forum news at 1.5x their 2-year norm (5 in 3 months); basket 6-month return +82%, ranked 3 of 24 active shortages | rotated out: rank fell to 8 of 24 |
+| 42 | Aluminium smelters (AA, CENX, NHY.OL) | 2021-08-04 | 2021-09-02 | 21 | +6.0% | +3.2% | Aluminium price up +21% in 6 months, 1.7 standard deviations above its norm; basket 6-month return +62%, ranked 2 of 24 active shortages | rotated out: rank fell to 14 of 25 |
+| 43 | Thermal coal miners (BTU, ARLP, WHC.AX, YAL.AX) | 2021-09-02 | 2021-12-02 | 63 | -7.6% | +1.3% | Coal, Australian price up +75% in 6 months, 2.6 standard deviations above its norm; shortage mentions in forum news at 1.6x their 2-year norm (8 in 3 months); basket 6-month return +98%, ranked 1 of 25 active shortages | rotated out: rank fell to 5 of 26 |
+| 44 | Coffee (futures) (KC=F) | 2021-10-04 | 2021-11-02 | 21 | +3.8% | +7.8% | Coffee, Arabica price up +30% in 6 months, 1.7 standard deviations above its norm; basket 6-month return +58%, ranked 3 of 25 active shortages | rotated out: rank fell to 6 of 27 |
+| 45 | Auto dealers / rental (AN, LAD, PAG, KMX, CAR) | 2021-11-02 | 2022-01-03 | 42 | -14.6% | +3.8% | Used cars CPI price up +24% in 6 months, 3.3 standard deviations above its norm; shortage mentions in forum news at 3.3x their 2-year norm (24 in 3 months); 2 S&P 500 companies cited a shortage of it on earnings calls, 1.6x the 2-year norm; basket 6-month return +50%, ranked 2 of 27 active shortages | rotated out: rank fell to 6 of 25 |
+| 46 | US gas producers (EQT, AR, RRC, CNX) | 2021-11-02 | 2021-12-02 | 21 | -15.6% | -1.0% | Natural gas, US price up +100% in 6 months, 2.6 standard deviations above its norm; shortage mentions in forum news at 3.4x their 2-year norm (16 in 3 months); basket 6-month return +48%, ranked 3 of 27 active shortages | rotated out: rank fell to 18 of 26 |
+| 47 | AI accelerators (NVDA, TSM, AMD) | 2021-12-02 | 2022-01-03 | 21 | -0.0% | +4.8% | shortage mentions in forum news at 2.1x their 2-year norm (29 in 3 months); basket 6-month return +53%, ranked 2 of 26 active shortages | rotated out: rank fell to 7 of 25 |
+| 48 | Tin miners (MLX.AX, AFM.V) | 2021-12-02 | 2022-06-03 | 126 | +13.1% | -9.6% | Tin price up +33% in 6 months, 1.6 standard deviations above its norm; basket 6-month return +48%, ranked 3 of 26 active shortages | rotated out: rank fell to 16 of 25 |
+| 49 | Coffee (futures) (KC=F) | 2022-01-03 | 2022-02-02 | 21 | +6.9% | -4.3% | Coffee, Arabica price up +39% in 6 months, 2.0 standard deviations above its norm; basket 6-month return +51%, ranked 3 of 25 active shortages | rotated out: rank fell to 9 of 25 |
+| 50 | Thermal coal miners (BTU, ARLP, WHC.AX, YAL.AX) | 2022-01-03 | 2022-04-04 | 63 | +79.8% | -4.1% | shortage mentions in forum news at 5.0x their 2-year norm (41 in 3 months); basket 6-month return +53%, ranked 2 of 25 active shortages | rotated out: rank fell to 7 of 23 |
+| 51 | Container shipping (MATX, DAC, ZIM, GSL, CMRE) | 2022-02-02 | 2022-03-04 | 21 | +4.2% | -5.5% | shortage mentions in forum news at 1.3x their 2-year norm (11 in 3 months); 7 S&P 500 companies cited a shortage of it on earnings calls, 1.3x the 2-year norm; basket 6-month return +51%, ranked 2 of 25 active shortages | rotated out: rank fell to 11 of 24 |
+| 52 | Aluminium smelters (AA, CENX, NHY.OL) | 2022-03-04 | 2022-05-04 | 42 | -29.7% | -0.4% | shortage mentions in forum news at 1.8x their 2-year norm (4 in 3 months); basket 6-month return +91%, ranked 1 of 24 active shortages | rotated out: rank fell to 9 of 23 |
+| 53 | US gas producers (EQT, AR, RRC, CNX) | 2022-04-04 | 2022-10-04 | 126 | +0.9% | -16.6% | shortage mentions in forum news at 3.0x their 2-year norm (20 in 3 months); basket 6-month return +54%, ranked 3 of 23 active shortages | rotated out: rank fell to 5 of 15 |
+| 54 | Thermal coal miners (BTU, ARLP, WHC.AX, YAL.AX) | 2022-05-04 | 2023-01-04 | 168 | +38.6% | -9.4% | Coal, Australian price up +69% in 6 months, 1.9 standard deviations above its norm; shortage mentions in forum news at 1.9x their 2-year norm (21 in 3 months); basket 6-month return +115%, ranked 1 of 23 active shortages | shortage signal ended |
+| 55 | Oil & gas E&P (XOP) | 2022-06-03 | 2022-07-06 | 21 | -30.1% | -6.2% | Crude oil, Brent price up +26% in 6 months, 0.9 standard deviations above its norm; shortage mentions in forum news at 2.5x their 2-year norm (53 in 3 months); basket 6-month return +69%, ranked 3 of 25 active shortages | rotated out: rank fell to 4 of 20 |
+| 56 | Egg producers (CALM) | 2022-07-06 | 2022-09-02 | 42 | +8.5% | +2.3% | Eggs, retail price price up +67% in 6 months, 2.7 standard deviations above its norm; basket 6-month return +34%, ranked 3 of 20 active shortages | rotated out: rank fell to 4 of 15 |
+| 57 | Lithium producers (ALB, SQM, PLS.AX, MIN.AX) | 2022-09-02 | 2023-05-02 | 165 | -5.2% | +6.1% | Lithium price up +66% in 6 months, 1.4 standard deviations above its norm; shortage mentions in forum news at 2.4x their 2-year norm (22 in 3 months); basket 6-month return +37%, ranked 2 of 15 active shortages | shortage signal ended |
+| 58 | LNG / Europe gas (LNG, EQNR) | 2022-10-04 | 2022-12-02 | 42 | +4.7% | +7.7% | Natural gas, Europe price up +157% in 6 months, 1.9 standard deviations above its norm; shortage mentions in forum news at 2.6x their 2-year norm (9 in 3 months); basket 6-month return +9%, ranked 3 of 15 active shortages | rotated out: rank fell to 4 of 8 |
+| 59 | Egg producers (CALM) | 2022-12-02 | 2023-05-05 | 105 | -9.1% | +2.3% | Eggs, retail price price up +36% in 6 months, 1.4 standard deviations above its norm; basket 6-month return +30%, ranked 3 of 8 active shortages | rotated out: rank fell to 5 of 5 |
+| 60 | Copper miners (COPX) | 2023-01-04 | 2023-02-02 | 20 | +11.8% | +8.6% | shortage mentions in forum news at 1.0x their 2-year norm (9 in 3 months); basket 6-month return +30%, ranked 2 of 6 active shortages | shortage signal ended |
+| 61 | Semiconductors (SMH) | 2023-02-03 | 2023-05-19 | 73 | +7.1% | +1.9% | Semiconductor PPI price up +3% in 6 months, 1.8 standard deviations above its norm; basket 6-month return +3%, ranked 3 of 4 active shortages | shortage signal ended |
+| 62 | Gold miners (GDX) | 2023-05-05 | 2023-06-06 | 21 | -10.6% | +3.7% | Gold price up +20% in 6 months, 1.9 standard deviations above its norm; basket 6-month return +55%, ranked 1 of 5 active shortages | rotated out: rank fell to 4 of 5 |
+| 63 | Sugar (futures) (SB=F) | 2023-05-05 | 2024-01-08 | 169 | -17.4% | +16.3% | Sugar, world price up +36% in 6 months, 1.9 standard deviations above its norm; basket 6-month return +43%, ranked 2 of 5 active shortages | shortage signal ended |
+| 64 | Cocoa (futures) (CC=F) | 2023-06-06 | 2024-08-07 | 294 | +182.0% | +23.3% | Cocoa price up +25% in 6 months, 1.7 standard deviations above its norm; basket 6-month return +22%, ranked 3 of 5 active shortages | shortage signal ended |
+| 65 | Grid & power equipment (ETN, HUBB, PWR, VRT, GEV) | 2023-06-06 | 2023-11-02 | 104 | +23.2% | +1.4% | shortage mentions in forum news at 2.3x their 2-year norm (7 in 3 months); basket 6-month return +23%, ranked 2 of 5 active shortages | shortage signal ended |
+| 66 | Uranium miners (URA) | 2023-11-03 | 2024-05-21 | 136 | +30.1% | +23.1% | Uranium price up +31% in 6 months, 1.6 standard deviations above its norm; basket 6-month return +34%, ranked 1 of 3 active shortages | shortage signal ended |
+| 67 | AI accelerators (NVDA, TSM, AMD) | 2024-02-06 | 2024-07-02 | 101 | +39.7% | +11.8% | 4 S&P 500 companies cited a shortage of it on earnings calls, 2.4x the 2-year norm; basket 6-month return +41%, ranked 3 of 3 active shortages | shortage signal ended |
+| 68 | Grid & power equipment (ETN, HUBB, PWR, VRT, GEV) | 2024-06-06 | 2024-08-02 | 39 | -7.6% | -0.0% | shortage mentions in forum news at 2.0x their 2-year norm (10 in 3 months); basket 6-month return +56%, ranked 3 of 5 active shortages | shortage signal ended |
+| 69 | Gold miners (GDX) | 2024-07-09 | 2024-11-05 | 84 | +11.1% | +4.1% | Gold price up +15% in 6 months, 1.3 standard deviations above its norm; basket 6-month return +21%, ranked 3 of 4 active shortages | rotated out: rank fell to 4 of 5 |
+| 70 | Electric power / grid connection (VST, CEG, TLN, NRG) | 2024-08-07 | 2024-12-03 | 82 | +66.4% | +16.8% | 6 S&P 500 companies cited a shortage of it on earnings calls, 2.1x the 2-year norm; basket 6-month return +56%, ranked 1 of 4 active shortages | shortage signal ended |
+| 71 | Silver miners (SIL) | 2024-08-07 | 2024-10-07 | 42 | +18.6% | +9.8% | Silver price up +30% in 6 months, 1.7 standard deviations above its norm; basket 6-month return +17%, ranked 3 of 4 active shortages | rotated out: rank fell to 4 of 6 |
+| 72 | Coffee (futures) (KC=F) | 2024-10-07 | 2025-07-08 | 186 | +17.5% | +10.3% | Coffee, Arabica price up +33% in 6 months, 1.9 standard deviations above its norm; basket 6-month return +16%, ranked 3 of 6 active shortages | shortage signal ended |
+| 73 | Silver miners (SIL) | 2024-11-05 | 2025-02-07 | 63 | -4.5% | +4.5% | Silver price up +23% in 6 months, 1.2 standard deviations above its norm; basket 6-month return +21%, ranked 3 of 5 active shortages | shortage signal ended |
+| 74 | Gold miners (GDX) | 2024-12-05 | 2025-03-11 | 63 | +12.8% | -8.1% | Gold price up +15% in 6 months, 1.3 standard deviations above its norm; basket 6-month return +4%, ranked 3 of 4 active shortages | rotated out: rank fell to 4 of 6 |
+| 75 | US gas producers (EQT, AR, RRC, CNX) | 2025-02-07 | 2025-05-07 | 61 | +2.2% | -6.3% | Natural gas, US price up +97% in 6 months, 1.9 standard deviations above its norm; basket 6-month return +42%, ranked 2 of 5 active shortages | shortage signal ended |
+| 76 | Egg producers (CALM) | 2025-03-11 | 2025-04-09 | 21 | +5.6% | -1.0% | Eggs, retail price price up +61% in 6 months, 1.7 standard deviations above its norm; shortage mentions in forum news at 2.3x their 2-year norm (25 in 3 months); basket 6-month return +30%, ranked 3 of 6 active shortages | rotated out: rank fell to 4 of 4 |
+| 77 | Gold miners (GDX) | 2025-04-09 | 2025-12-09 | 168 | +82.1% | +25.2% | Gold price up +16% in 6 months, 1.2 standard deviations above its norm; basket 6-month return +17%, ranked 2 of 4 active shortages | rotated out: rank fell to 4 of 5 |
+| 78 | Egg producers (CALM) | 2025-05-09 | 2025-08-04 | 58 | +16.1% | +12.2% | shortage mentions in forum news at 2.9x their 2-year norm (36 in 3 months); basket 6-month return +8%, ranked 3 of 3 active shortages | shortage signal ended |
+| 79 | PGM miners (SBSW, IMPUY) | 2025-07-11 | 2026-02-10 | 147 | +94.4% | +11.6% | Platinum price up +33% in 6 months, 2.4 standard deviations above its norm; basket 6-month return +110%, ranked 1 of 3 active shortages | rotated out: rank fell to 4 of 8 |
+| 80 | Silver miners (SIL) | 2025-11-07 | 2026-05-12 | 126 | +60.2% | +10.6% | Silver price up +53% in 6 months, 2.6 standard deviations above its norm; basket 6-month return +53%, ranked 2 of 3 active shortages | rotated out: rank fell to 5 of 11 |
+| 81 | Memory chips (DRAM/HBM) (MU, 000660.KS, WDC, SNDK) | 2025-12-09 | 2026-09-02 | 183 | +325.5% | +13.0% | shortage mentions in forum news at 5.5x their 2-year norm (17 in 3 months); basket 6-month return +221%, ranked 1 of 5 active shortages | shortage signal ended |
+| 82 | Copper miners (COPX) | 2026-02-10 | 2026-03-12 | 21 | -9.6% | -3.8% | Copper price up +33% in 6 months, 1.9 standard deviations above its norm; basket 6-month return +98%, ranked 2 of 8 active shortages | rotated out: rank fell to 4 of 8 |
+| 83 | Tin miners (MLX.AX, AFM.V) | 2026-03-12 | 2026-04-13 | 21 | +5.1% | +3.3% | Tin price up +44% in 6 months, 1.5 standard deviations above its norm; basket 6-month return +69%, ranked 2 of 8 active shortages | rotated out: rank fell to 5 of 11 |
+| 84 | Aluminium smelters (AA, CENX, NHY.OL) | 2026-04-13 | 2026-07-14 | 63 | -27.0% | +9.9% | Aluminium price up +27% in 6 months, 1.6 standard deviations above its norm; basket 6-month return +95%, ranked 2 of 11 active shortages | rotated out: rank fell to 8 of 8 |
+| 85 | Tin miners (MLX.AX, AFM.V) | 2026-05-12 | 2026-06-11 | 21 | -7.6% | -0.1% | Tin price up +36% in 6 months, 1.2 standard deviations above its norm; basket 6-month return +80%, ranked 2 of 11 active shortages | rotated out: rank fell to 4 of 10 |
+| 86 | Semiconductors (SMH) | 2026-06-11 | 2026-07-02 | 14 | -2.8% | +1.2% | 6 S&P 500 companies cited a shortage of it on earnings calls, 1.9x the 2-year norm; basket 6-month return +66%, ranked 3 of 10 active shortages | shortage signal ended |
+| 87 | AI accelerators (NVDA, TSM, AMD) | 2026-07-14 | 2026-10-02 | 57 | +13.9% | +2.6% | shortage mentions in forum news at 2.4x their 2-year norm (60 in 3 months); basket 6-month return +63%, ranked 2 of 8 active shortages | shortage signal ended |
+| 88 | LNG / Europe gas (LNG, EQNR) | 2026-07-14 | 2026-08-04 | 15 | +2.6% | +2.6% | shortage mentions in forum news at 1.2x their 2-year norm (3 in 3 months); basket 6-month return +48%, ranked 3 of 8 active shortages | shortage signal ended |
+| 89 | Tin miners (MLX.AX, AFM.V) | 2026-08-12 | 2026-11-06 | 61 | -17.7% | -4.6% | Tin price up +7% in 6 months, 0.0 standard deviations above its norm; basket 6-month return +37%, ranked 3 of 6 active shortages | shortage signal ended |
+| 90 | Cotton (futures) (CT=F) | 2026-09-11 | 2026-11-06 | 40 | -4.0% | -3.6% | Cotton, A Index price up +29% in 6 months, 1.6 standard deviations above its norm; basket 6-month return +26%, ranked 3 of 5 active shortages | shortage signal ended |
+| 91 | Copper miners (COPX) | 2026-10-12 | open | 20 | -11.8% | -3.3% | Copper price up +16% in 6 months, 0.7 standard deviations above its norm; basket 6-month return +1%, ranked 3 of 3 active shortages | still held |

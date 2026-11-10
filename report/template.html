@@ -1,0 +1,261 @@
+<title>Shortage Rotation Report</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600&display=swap">
+<style>
+/* Layout: a single reading column (72ch) for prose; charts and tables break out to a wider 1080px measure. */
+:root{
+  --bg:#f9f9f7; --surface:#fcfcfb; --ink:#0b0b0b; --ink2:#52514e; --rule:#e3e2dc; --grid:#ebeae5;
+  --rot:#2a78d6; --spy:#eda100; --neg:#eb6834; --band:#d9d8d2; --mid:#8a8982; --chip:#eef1f6;
+  --display:"Space Grotesk",system-ui,sans-serif; --body:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0d0d0d; --surface:#1a1a19; --ink:#f0efec; --ink2:#c3c2b7; --rule:#34342f; --grid:#2a2a27;
+  --rot:#3987e5; --spy:#c98500; --neg:#d95926; --band:#3a3a36; --mid:#9a998f; --chip:#23272e; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0d0d0d; --surface:#1a1a19; --ink:#f0efec; --ink2:#c3c2b7; --rule:#34342f; --grid:#2a2a27;
+  --rot:#3987e5; --spy:#c98500; --neg:#d95926; --band:#3a3a36; --mid:#9a998f; --chip:#23272e; color-scheme:dark}
+body{background:var(--bg);color:var(--ink);font:15px/1.6 var(--body);padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:32px 64px}
+.wrap{max-width:1080px;margin:0 auto;display:flex;flex-direction:column;gap:40px}
+.prose{max-width:72ch}
+h1{font:600 34px/1.15 var(--display);margin:0 0 10px;text-wrap:balance}
+h2{font:600 21px/1.25 var(--display);margin:0 0 12px;text-wrap:balance}
+h3{font:600 15px/1.3 var(--body);margin:0 0 8px}
+p{margin:0 0 12px} ul{margin:0 0 12px;padding-left:20px} li{margin-bottom:6px}
+.lede{font-size:17px;color:var(--ink)} .meta{color:var(--ink2);font-size:13px}
+section{display:flex;flex-direction:column;gap:14px;min-width:0}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:6px;overflow:hidden}
+.kpi{background:var(--surface);padding:14px 16px}
+.kpi b{display:block;font:600 24px/1.2 var(--display);font-variant-numeric:tabular-nums}
+.kpi span{color:var(--ink2);font-size:12.5px}
+.kpi i{font-style:normal;color:var(--ink2);font-size:12.5px;display:block}
+.fig{background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:16px;min-width:0;position:relative}
+.fig h3{margin-bottom:2px} .fig .cap{color:var(--ink2);font-size:12.5px;margin:0 0 8px}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:12.5px;color:var(--ink2);margin-bottom:6px}
+.legend i{display:inline-block;width:14px;height:3px;border-radius:2px;vertical-align:middle;margin-right:6px}
+.legend i.box{height:10px}
+svg{display:block;width:100%;height:auto;overflow:visible}
+svg text{font:11px var(--body);fill:var(--ink2)}
+.tip{position:absolute;pointer-events:none;background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:8px 10px;font-size:12.5px;line-height:1.45;box-shadow:0 4px 14px rgba(0,0,0,.12);max-width:280px;z-index:5;font-variant-numeric:tabular-nums}
+.tip b{font-weight:600}
+.scroll{overflow-x:auto;min-width:0}
+table{border-collapse:collapse;width:100%;font-size:13.5px;font-variant-numeric:tabular-nums}
+th{font-weight:600;text-align:left;color:var(--ink2);font-size:12px;letter-spacing:.02em;border-bottom:1px solid var(--rule);padding:6px 10px 6px 0;white-space:nowrap;vertical-align:bottom}
+td{border-bottom:1px solid var(--rule);padding:7px 10px 7px 0;vertical-align:top}
+td.num,th.num{text-align:right}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
+.cols>*{min-width:0}
+.controls{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+input[type=search],select{font:14px var(--body);color:var(--ink);background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:7px 10px;min-width:0}
+input[type=search]{flex:1 1 220px}
+input:focus-visible,select:focus-visible,button:focus-visible{outline:2px solid var(--rot);outline-offset:2px}
+#trades td.why{min-width:280px;color:var(--ink2);font-size:13px}
+#trades td.th{min-width:170px} #trades td:nth-child(3),#trades td:nth-child(4){white-space:nowrap} #trades small{color:var(--ink2);display:block;font-size:12px}
+.pos{color:var(--ink)} .negv{color:var(--neg);font-weight:500}
+.chip{display:inline-block;background:var(--chip);border-radius:4px;padding:1px 6px;font-size:12px;color:var(--ink2);white-space:nowrap}
+.rule-box{border-left:3px solid var(--rot);padding:4px 0 4px 16px}
+</style>
+
+<div class="wrap">
+<header class="prose">
+  <p class="meta">Back-test, January 2018 to {{ASOF}} · costs of 10 basis points per side included</p>
+  <h1>Shortage Rotation Report</h1>
+  <p class="lede">A monthly rotation into the three strongest active shortages returned {{CAGR}} a year against {{CAGR_SPY}} for SPY, and beat {{PCT_CAGR}} portfolios that picked three active shortages at random. It is volatile, and ten trades produced {{TOP10}} of the gain.</p>
+</header>
+
+<section>
+  <div class="kpis">
+    <div class="kpi"><b>{{CAGR}}</b><span>return per year</span><i>SPY {{CAGR_SPY}}</i></div>
+    <div class="kpi"><b>{{SHARPE}}</b><span>Sharpe ratio</span><i>SPY {{SHARPE_SPY}}</i></div>
+    <div class="kpi"><b>{{DD}}</b><span>worst drawdown</span><i>SPY {{DD_SPY}}</i></div>
+    <div class="kpi"><b>{{VOL}}</b><span>volatility per year</span><i>SPY {{VOL_SPY}}</i></div>
+    <div class="kpi"><b>{{MULT}}</b><span>growth of 1</span><i>SPY {{MULT_SPY}}</i></div>
+    <div class="kpi"><b>{{NTR}}</b><span>trades</span><i>{{WON}} made money</i></div>
+  </div>
+</section>
+
+<section class="prose">
+  <h2>The rule</h2>
+  <div class="rule-box">
+    <p><b>A shortage is active</b> when any one of three signals is on:</p>
+    <ul>
+      <li><b>Price:</b> the good's 6-month price rise is at least 1.5 standard deviations above its own 10-year history and the price is at a 24-month high. It stays on until the price falls below its 6-month average, or 24 months pass. 30 goods are tracked.</li>
+      <li><b>News:</b> posts pairing the industry with "shortage" reach twice their own 2-year rate, with at least five mentions in three months and shortage talk more unusual than glut talk. It stays on until mentions fall back below normal.</li>
+      <li><b>Earnings calls:</b> at least three S&amp;P 500 companies cite a shortage of the same input in three months, at twice the 2-year norm.</li>
+    </ul>
+    <p><b>Every 21 trading days,</b> rank the active shortages by the 6-month return of their producer basket and hold the top three, one third each. A holding whose shortage ends is sold at once. Idle money sits in T-bills.</p>
+  </div>
+  <p class="meta">Every signal is traded only after its data was public: 5 to 15 trading days into the following month for prices, day 2 for news and calls.</p>
+</section>
+
+<section>
+  <h2>Performance against SPY and against random picks</h2>
+  <div class="fig" id="f1">
+    <h3>Growth of 1 since January 2018</h3>
+    <p class="cap">Log scale. The grey band is the middle 90% of 200 portfolios that hold three randomly chosen active shortages, re-drawn monthly.</p>
+    <div class="legend"><span><i style="background:var(--rot)"></i>Shortage rotation</span><span><i style="background:var(--spy)"></i>SPY</span><span><i style="background:var(--mid)"></i>Random three, median</span><span><i class="box" style="background:var(--band)"></i>Random three, 5th to 95th percentile</span></div>
+    <svg id="c1" viewBox="0 0 1040 420" role="img" aria-label="Line chart of the rotation, SPY and random portfolios"></svg>
+  </div>
+  <div class="cols">
+    <div class="fig" id="f2">
+      <h3>Return by calendar year</h3>
+      <p class="cap">Rotation beside SPY, percent.</p>
+      <div class="legend"><span><i class="box" style="background:var(--rot)"></i>Rotation</span><span><i class="box" style="background:var(--spy)"></i>SPY</span></div>
+      <svg id="c2" viewBox="0 0 520 300" role="img" aria-label="Bar chart of yearly returns"></svg>
+    </div>
+    <div class="fig" id="f3">
+      <h3>Drawdown from the previous peak</h3>
+      <p class="cap">How far each was below its high-water mark, percent.</p>
+      <div class="legend"><span><i style="background:var(--rot)"></i>Rotation</span><span><i style="background:var(--spy)"></i>SPY</span></div>
+      <svg id="c3" viewBox="0 0 520 300" role="img" aria-label="Drawdown chart"></svg>
+    </div>
+  </div>
+  <div class="cols">
+    <div class="scroll"><table>
+      <thead><tr><th>Year</th><th class="num">Rotation</th><th class="num">SPY</th><th class="num">Difference, points</th></tr></thead>
+      <tbody id="yrs">{{YR_ROWS}}</tbody></table></div>
+    <div class="scroll"><table>
+      <thead><tr><th></th><th class="num">Return per year</th><th class="num">Sharpe</th><th class="num">Worst drawdown</th></tr></thead>
+      <tbody>
+        <tr><td>Shortage rotation</td><td>{{CAGR}}</td><td>{{SHARPE}}</td><td>{{DD}}</td></tr>
+        <tr><td>Random three, median of 500</td><td>{{RND_CAGR}}</td><td>{{RND_SHARPE}}</td><td>{{RND_DD}}</td></tr>
+        <tr><td>Random three, 95th percentile</td><td>{{RND95_CAGR}}</td><td>{{RND95_SHARPE}}</td><td></td></tr>
+        <tr><td>Random portfolios the rotation beat</td><td>{{RANK_CAGR}}</td><td>{{RANK_SHARPE}}</td><td></td></tr>
+        <tr><td>SPY</td><td>{{CAGR_SPY}}</td><td>{{SHARPE_SPY}}</td><td>{{DD_SPY}}</td></tr>
+      </tbody></table>
+      <p class="meta" style="margin-top:10px">The rotation beat SPY in {{MONTHS}} of months; daily correlation with SPY is {{CORR}}.</p></div>
+  </div>
+</section>
+
+<section>
+  <h2>The trades</h2>
+  <p class="prose">{{NTR}} trades: {{WON}} made money and {{BEAT}} beat SPY over the same days. The mean return was {{MEAN}}, the median {{MEDIAN}}, and the average holding {{DAYS}} trading days. The ten best trades produced {{TOP10}} of the total gain.</p>
+  <div class="fig" id="f4">
+    <h3>Every trade in order of purchase</h3>
+    <p class="cap">Return of the theme basket while held, percent. Each position is one third of the portfolio. Hover or tap a bar for the trade.</p>
+    <div class="legend"><span><i class="box" style="background:var(--rot)"></i>Gain</span><span><i class="box" style="background:var(--neg)"></i>Loss</span></div>
+    <svg id="c4" viewBox="0 0 1040 320" role="img" aria-label="Bar chart of each trade's return"></svg>
+  </div>
+  <div class="cols">
+    <div class="scroll"><h3>By signal that was on at purchase</h3><table>
+      <thead><tr><th>Signal</th><th class="num">Trades</th><th class="num">Won</th><th class="num">Mean return</th><th class="num">Added to portfolio</th></tr></thead>
+      <tbody>{{SIG_ROWS}}</tbody></table></div>
+    <div class="scroll" style="max-height:360px;overflow-y:auto"><h3>By theme</h3><table>
+      <thead><tr><th>Theme</th><th class="num">Trades</th><th class="num">Added to portfolio</th></tr></thead>
+      <tbody>{{TH_ROWS}}</tbody></table></div>
+  </div>
+</section>
+
+<section>
+  <h2>Complete trade list with rationale</h2>
+  <div class="controls">
+    <input type="search" id="q" placeholder="Filter by theme, ticker or reason" aria-label="Filter trades">
+    <select id="sig" aria-label="Signal"><option value="">All signals</option><option>price</option><option>news</option><option>calls</option></select>
+    <select id="res" aria-label="Result"><option value="">Gains and losses</option><option value="w">Gains only</option><option value="l">Losses only</option></select>
+    <span class="meta" id="count"></span>
+  </div>
+  <div class="scroll"><table id="trades">
+    <thead><tr><th>#</th><th>Theme and assets</th><th>Bought</th><th>Sold</th><th class="num">Days</th><th class="num">Return</th><th class="num">SPY</th><th>Why it was bought</th><th>Why it was sold</th></tr></thead>
+    <tbody></tbody></table></div>
+</section>
+
+<section>
+  <h2>Changes tested</h2>
+  <p class="prose">Each row is one change to the rule. Only weighting by inverse volatility was better in both halves of the period, and only slightly. Differences among the top rows are within noise.</p>
+  <div class="scroll"><table>
+    <thead><tr><th>Change</th><th class="num">Return per year</th><th class="num">Sharpe</th><th class="num">Worst drawdown</th><th class="num">Sharpe 2018–22</th><th class="num">Sharpe 2023–26</th></tr></thead>
+    <tbody>{{ADD_ROWS}}</tbody></table></div>
+</section>
+
+<section class="prose">
+  <h2>Earnings-call text after May 2025</h2>
+  <p>The original call data ended on 15 May 2025. A second open dataset extends it to 12 May 2026 with 2,529 calls from the same S&amp;P 500 companies. Where the two overlap (764 calls), their shortage and glut sentence counts correlate at 0.98, so they were joined into one series.</p>
+  <ul>
+    <li>New call-based shortage signals: electric power and grid connection (November 2025), memory chips and mature-node chips (February 2026), aluminium, crude oil and housing (April 2026).</li>
+    <li>Effect on the rotation: almost none. Return moved from 39.9% to {{CAGR}} a year, because most of those themes were already flagged by price or news, or did not rank in the top three.</li>
+    <li>There is still no call text after May 2026. From then on only price and news feed the signal.</li>
+    <li>The second dataset was collected by a third party from a transcript website and carries a non-standard licence. Only derived counts are stored, not the text.</li>
+  </ul>
+</section>
+
+<section class="prose">
+  <h2>Position today</h2>
+  <p>Open: {{OPEN}}. No other shortage is active, so two thirds of the portfolio is in T-bills.</p>
+</section>
+
+<section class="prose">
+  <h2>What to keep in mind</h2>
+  <ul>
+    <li><b>The rule was chosen after the fact.</b> Monthly top-three was the best of the variants tried on this same data. Expect less going forward.</li>
+    <li><b>Gains are concentrated.</b> Ten trades made {{TOP10}} of the profit. The memory-chip trade alone is the largest single contributor.</li>
+    <li><b>It is a rough ride.</b> Volatility is {{VOL}} a year with a {{DD}} drawdown, against {{VOL_SPY}} and {{DD_SPY}} for SPY. It lagged SPY by 29 points in 2019 and 12 in 2023.</li>
+    <li><b>One period.</b> 2018 to 2026 contains one large shortage cluster (2020–22) and one AI hardware boom.</li>
+    <li><b>The news source is one technology forum</b> with small counts, and the theme baskets were written in 2026 with hindsight. Currency moves on non-US tickers and futures roll costs on the soft commodities are not modelled.</li>
+  </ul>
+</section>
+</div>
+
+<script>
+const D={{DATA}};
+const NS="http://www.w3.org/2000/svg";
+const el=(t,a,p)=>{const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e};
+const pct=(x,d=0)=>(x>=0?"+":"")+(x*100).toFixed(d)+"%";
+function tip(fig){let t=fig.querySelector(".tip");if(!t){t=document.createElement("div");t.className="tip";t.hidden=true;fig.appendChild(t)}return t}
+function place(t,fig,ev){const r=fig.getBoundingClientRect();let x=ev.clientX-r.left+14,y=ev.clientY-r.top+14;t.hidden=false;if(x+t.offsetWidth>r.width-4)x=Math.max(4,ev.clientX-r.left-t.offsetWidth-14);t.style.left=x+"px";t.style.top=y+"px"}
+function pt(svg,ev){const p=svg.createSVGPoint();p.x=ev.clientX;p.y=ev.clientY;return p.matrixTransform(svg.getScreenCTM().inverse())}
+
+// ---- line charts
+function lines(id,figId,W,H,series,band,opt){
+  const svg=document.getElementById(id),fig=document.getElementById(figId),m={l:44,r:opt.labels?64:12,t:10,b:26};
+  const n=D.curve.d.length,x=i=>m.l+(W-m.l-m.r)*i/(n-1);
+  const f=opt.log?Math.log:(v=>v),lo=f(opt.min),hi=f(opt.max),y=v=>m.t+(H-m.t-m.b)*(1-(f(v)-lo)/(hi-lo));
+  opt.ticks.forEach(v=>{el("line",{x1:m.l,x2:W-m.r,y1:y(v),y2:y(v),stroke:"var(--grid)","stroke-width":1},svg);el("text",{x:m.l-6,y:y(v)+4,"text-anchor":"end"},svg).textContent=opt.fmt(v)});
+  let last="";D.curve.d.forEach((d,i)=>{const yr=d.slice(0,4);if(yr!==last&&d.slice(5,7)==="01"){el("text",{x:x(i),y:H-6,"text-anchor":"middle"},svg).textContent=yr;last=yr}});
+  const path=a=>a.map((v,i)=>(i?"L":"M")+x(i).toFixed(1)+" "+y(v).toFixed(1)).join("");
+  if(band){el("path",{d:path(band[1])+band[0].map((v,i)=>[x(i),y(v)]).reverse().map(p=>"L"+p[0].toFixed(1)+" "+p[1].toFixed(1)).join("")+"Z",fill:"var(--band)",opacity:.6},svg)}
+  series.forEach(s=>{el("path",{d:path(s.v),fill:"none",stroke:s.c,"stroke-width":s.w||2,"stroke-linejoin":"round"},svg);
+    if(opt.labels)el("text",{x:W-m.r+6,y:y(s.v[n-1])+4,style:"fill:var(--ink)"},svg).textContent=opt.fmt(s.v[n-1])});
+  const cross=el("line",{y1:m.t,y2:H-m.b,stroke:"var(--ink2)","stroke-width":1,opacity:0},svg),t=tip(fig);
+  const hit=el("rect",{x:m.l,y:m.t,width:W-m.l-m.r,height:H-m.t-m.b,fill:"transparent"},svg);
+  const move=ev=>{const p=pt(svg,ev),i=Math.max(0,Math.min(n-1,Math.round((p.x-m.l)/(W-m.l-m.r)*(n-1))));cross.setAttribute("x1",x(i));cross.setAttribute("x2",x(i));cross.setAttribute("opacity",.5);
+    t.innerHTML="<b>"+D.curve.d[i]+"</b><br>"+series.map(s=>s.n+": "+opt.fmt(s.v[i])).join("<br>");place(t,fig,ev)};
+  hit.addEventListener("pointermove",move);hit.addEventListener("pointerdown",move);hit.addEventListener("pointerleave",()=>{t.hidden=true;cross.setAttribute("opacity",0)});
+}
+const C=D.curve;
+lines("c1","f1",1040,420,[{n:"Random median",v:C.p50,c:"var(--mid)",w:1.3},{n:"SPY",v:C.spy,c:"var(--spy)"},{n:"Rotation",v:C.rot,c:"var(--rot)",w:2.4}],[C.p5,C.p95],
+  {log:true,min:.45,max:26,ticks:[.5,1,2,4,8,16],fmt:v=>(v>=10?v.toFixed(0):v.toFixed(1))+"x",labels:true});
+lines("c3","f3",520,300,[{n:"SPY",v:C.dds,c:"var(--spy)"},{n:"Rotation",v:C.dd,c:"var(--rot)"}],null,{min:-.42,max:0,ticks:[0,-.1,-.2,-.3,-.4],fmt:v=>(v*100).toFixed(0)+"%"});
+
+// ---- yearly grouped bars
+(function(){const svg=document.getElementById("c2"),fig=document.getElementById("f2"),W=520,H=300,m={l:40,r:8,t:16,b:26},Y=D.years;
+  const hi=1.2,lo=-.3,y=v=>m.t+(H-m.t-m.b)*(1-(v-lo)/(hi-lo)),bw=(W-m.l-m.r)/Y.length,t=tip(fig);
+  [-.25,0,.25,.5,.75,1].forEach(v=>{el("line",{x1:m.l,x2:W-m.r,y1:y(v),y2:y(v),stroke:v===0?"var(--ink2)":"var(--grid)","stroke-width":1},svg);el("text",{x:m.l-6,y:y(v)+4,"text-anchor":"end"},svg).textContent=(v*100).toFixed(0)+"%"});
+  Y.forEach((d,i)=>{const x0=m.l+bw*i;el("text",{x:x0+bw/2,y:H-6,"text-anchor":"middle"},svg).textContent=d.y;
+    [["rot","var(--rot)"],["spy","var(--spy)"]].forEach(([k,c],j)=>{const v=d[k],w=bw*.34,x=x0+bw*.14+j*(w+2),h=Math.abs(y(v)-y(0));
+      const r=el("rect",{x,y:Math.min(y(v),y(0)),width:w,height:Math.max(h,1),rx:2,fill:c},svg);
+      const sh=ev=>{t.innerHTML="<b>"+d.y+"</b><br>Rotation "+pct(d.rot)+"<br>SPY "+pct(d.spy);place(t,fig,ev)};
+      r.addEventListener("pointermove",sh);r.addEventListener("pointerdown",sh);r.addEventListener("pointerleave",()=>t.hidden=true)})});
+})();
+
+// ---- per-trade bars
+(function(){const svg=document.getElementById("c4"),fig=document.getElementById("f4"),W=1040,H=320,m={l:44,r:8,t:14,b:26},T=D.trades,cap=2;
+  const lo=-.5,y=v=>m.t+(H-m.t-m.b)*(1-(Math.min(v,cap)-lo)/(cap-lo)),bw=(W-m.l-m.r)/T.length,t=tip(fig);
+  [-.5,0,.5,1,1.5,2].forEach(v=>{el("line",{x1:m.l,x2:W-m.r,y1:y(v),y2:y(v),stroke:v===0?"var(--ink2)":"var(--grid)","stroke-width":1},svg);el("text",{x:m.l-6,y:y(v)+4,"text-anchor":"end"},svg).textContent=(v*100).toFixed(0)+"%"+(v===cap?"+":"")});
+  let last="";T.forEach((d,i)=>{const x=m.l+bw*i,yr=d.buy.slice(0,4);if(yr!==last){el("text",{x:x+2,y:H-6},svg).textContent=yr;el("line",{x1:x,x2:x,y1:H-m.b,y2:H-m.b+5,stroke:"var(--ink2)"},svg);last=yr}
+    const h=Math.abs(y(d.ret)-y(0));el("rect",{x:x+1,y:Math.min(y(d.ret),y(0)),width:Math.max(bw-2,2),height:Math.max(h,1.5),rx:1.5,fill:d.ret>=0?"var(--rot)":"var(--neg)"},svg);
+    if(d.ret>cap)el("text",{x:x+bw/2,y:y(cap)-3,"text-anchor":"middle",style:"fill:var(--ink)"},svg).textContent=pct(d.ret);
+    const r=el("rect",{x,y:m.t,width:bw,height:H-m.t-m.b,fill:"transparent"},svg);
+    const sh=ev=>{t.innerHTML="<b>#"+d.n+" "+d.theme+"</b><br>"+d.buy+" to "+d.sell+"<br>Return "+pct(d.ret,1)+" (SPY "+pct(d.spy,1)+")";place(t,fig,ev)};
+    r.addEventListener("pointermove",sh);r.addEventListener("pointerdown",sh);r.addEventListener("pointerleave",()=>t.hidden=true)});
+})();
+
+// ---- trade table
+(function(){const tb=document.querySelector("#trades tbody"),q=document.getElementById("q"),sg=document.getElementById("sig"),rs=document.getElementById("res"),cnt=document.getElementById("count");
+  const esc=s=>String(s).replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));
+  function draw(){const f=q.value.trim().toLowerCase(),s=sg.value,r=rs.value;
+    const rows=D.trades.filter(d=>(!f||(d.theme+" "+d.assets+" "+d.why+" "+d.sold).toLowerCase().includes(f))&&(!s||d.signal.split("+").includes(s))&&(!r||(r==="w")===(d.ret>0)));
+    tb.innerHTML=rows.map(d=>"<tr><td>"+d.n+"</td><td class='th'>"+esc(d.theme)+"<small>"+esc(d.assets)+"</small></td><td>"+d.buy+"</td><td>"+d.sell+"</td><td class='num'>"+d.days+"</td><td class='num "+(d.ret<0?"negv":"pos")+"'>"+pct(d.ret,1)+"</td><td class='num'>"+pct(d.spy,1)+"</td><td class='why'><span class='chip'>"+esc(d.signal)+"</span> "+esc(d.why)+"</td><td class='why' style='min-width:150px'>"+esc(d.sold)+"</td></tr>").join("");
+    cnt.textContent=rows.length+" of "+D.trades.length+" trades"}
+  q.addEventListener("input",draw);sg.addEventListener("change",draw);rs.addEventListener("change",draw);draw();
+})();
+document.querySelectorAll("table").forEach(t=>{if(t.id==="trades")return;t.querySelectorAll("tr").forEach(r=>[...r.children].forEach((c,i)=>{if(i>0)c.classList.add("num")}))});
+</script>

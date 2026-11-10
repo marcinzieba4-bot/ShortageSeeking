@@ -53,7 +53,17 @@ B = dict(window=24, on=2.0, off=1.0, min_firms=5, k=2.0, lag=2)   # same shape a
 
 
 def load(path):
-    d = pd.DataFrame(json.load(open(path)) if path.endswith("call_scores.json") else list(json.load(open(path)).values()))
+    """Scores as a DataFrame. For calls, the 2005-May 2025 set is extended with the Feb 2024-May 2026 set
+    (same S&P 500 tickers), using the newer set only for dates after the older one ends."""
+    import os
+    if path.endswith("call_scores.json"):
+        d = pd.DataFrame(json.load(open(path)))
+        p2 = path.replace("call_scores.json", "call_scores_2.json")
+        if os.path.exists(p2):
+            n = pd.DataFrame(json.load(open(p2)))
+            d = pd.concat([d, n[n.date > d.date.max()]], ignore_index=True)
+    else:
+        d = pd.DataFrame(list(json.load(open(path)).values()))
     d["month"] = pd.PeriodIndex(d["date"].str[:7], freq="M")
     return d[d.words > 500]
 

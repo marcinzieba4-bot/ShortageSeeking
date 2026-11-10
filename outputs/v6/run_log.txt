@@ -1,10 +1,10 @@
 === 1. MONTHLY ROTATION vs 500 RANDOM MONTHLY PORTFOLIOS ===
                                cagr    vol  sharpe  maxdd  cagr_18_22  sharpe_18_22  cagr_23_26  sharpe_23_26
-monthly top 3 by 6m momentum  0.399  0.305   1.256 -0.379       0.225         0.837       0.664         1.763
-random 3, median              0.250  0.285   0.924 -0.449       0.126         0.573       0.432         1.342
-random 3, 5th pct             0.161  0.277   0.670 -0.516       0.032         0.251       0.312         1.050
-random 3, 95th pct            0.338  0.293   1.167 -0.387       0.237         0.917       0.567         1.643
-percentile of strategy        0.998  1.000   0.992  0.968       0.934         0.900       0.996         0.980
+monthly top 3 by 6m momentum  0.396  0.306   1.243 -0.379       0.225         0.837       0.655         1.730
+random 3, median              0.243  0.281   0.912 -0.449       0.126         0.573       0.422         1.352
+random 3, 5th pct             0.171  0.273   0.700 -0.516       0.032         0.251       0.314         1.067
+random 3, 95th pct            0.329  0.290   1.147 -0.387       0.237         0.917       0.537         1.623
+percentile of strategy        1.000  1.000   0.984  0.964       0.934         0.900       0.998         0.984
 SPY                           0.142  0.190   0.792 -0.337       0.093         0.522       0.208         1.329
 
       rotation    SPY   diff
@@ -17,14 +17,14 @@ Date
 2023     0.141  0.262 -0.120
 2024     1.060  0.249  0.811
 2025     0.980  0.177  0.802
-2026     0.516  0.112  0.404
-correlation with SPY 0.45 | months beating SPY 0.6
+2026     0.487  0.112  0.374
+correlation with SPY 0.45 | months beating SPY 0.61
 
-=== 2. TRADES: 90, won 61%, beat SPY 54%, mean +14.5%, median +4.9%, avg days 67 ===
+=== 2. TRADES: 91, won 60%, beat SPY 54%, mean +14.3%, median +4.7%, avg days 66 ===
                                  theme            signal         buy        sell  days   open    ret    spy  vs_spy  contribution
-1     Electric power / grid connection             calls  2018-01-02  2018-02-01    21  False -0.011  0.048  -0.059        -0.003
+1                       Semiconductors              news  2018-01-02  2018-01-03     1  False  0.014  0.006   0.008         0.005
 2              Memory chips (DRAM/HBM)             calls  2018-01-02  2018-03-02    41  False  0.078  0.001   0.077         0.027
-3                       Semiconductors              news  2018-01-02  2018-01-03     1  False  0.014  0.006   0.008         0.005
+3     Electric power / grid connection             calls  2018-01-02  2018-02-01    21  False -0.011  0.048  -0.059        -0.003
 4                      AI accelerators              news  2018-02-01  2018-05-03    63  False -0.119 -0.064  -0.055        -0.037
 5                     LNG / Europe gas             price  2018-02-01  2018-12-10   215  False  0.032 -0.050   0.082         0.019
 6                        Oil & gas E&P             calls  2018-03-05  2018-06-04    63  False  0.187  0.014   0.173         0.060
@@ -37,11 +37,11 @@ correlation with SPY 0.45 | months beating SPY 0.6
 13                      Housing / lots             calls  2019-01-03  2019-04-02    61  False  0.198  0.176   0.022         0.063
 14                          PGM miners             price  2019-03-06  2019-06-03    61  False  0.009 -0.006   0.015         0.012
 15                    US gas producers             calls  2019-04-04  2019-05-02    19  False -0.139  0.014  -0.152        -0.048
-16                 Thermal coal miners              news  2019-06-04  2019-12-03   127  False -0.310  0.114  -0.424        -0.119
-17                    US gas producers              news  2019-06-04  2019-08-05    43  False -0.323  0.017  -0.339        -0.118
-18                   Timber & sawmills             calls  2019-06-04  2019-08-05    43  False -0.012  0.017  -0.029        -0.002
-19                               Water             calls  2019-08-05  2019-12-03    84  False  0.055  0.096  -0.041         0.019
-20                     Iron ore majors             price  2019-08-05  2019-09-09    24  False  0.074  0.051   0.024         0.025
+16                    US gas producers              news  2019-06-04  2019-08-05    43  False -0.323  0.017  -0.339        -0.118
+17                   Timber & sawmills             calls  2019-06-04  2019-08-05    43  False -0.012  0.017  -0.029        -0.002
+18                 Thermal coal miners              news  2019-06-04  2019-12-03   127  False -0.310  0.114  -0.424        -0.119
+19                     Iron ore majors             price  2019-08-05  2019-09-09    24  False  0.074  0.051   0.024         0.025
+20                               Water             calls  2019-08-05  2019-12-03    84  False  0.055  0.096  -0.041         0.019
 21                    US gas producers              news  2019-10-03  2019-11-01    21  False  0.102  0.054   0.048         0.037
 22                       Nickel miners             price  2019-11-01  2019-12-06    24  False -0.058  0.029  -0.087        -0.019
 23                    US gas producers              news  2019-12-03  2020-01-03    21  False  0.302  0.047   0.255         0.094
@@ -52,26 +52,26 @@ correlation with SPY 0.45 | months beating SPY 0.6
 28                       Egg producers             calls  2020-08-04  2020-09-02    21  False -0.121  0.084  -0.205        -0.040
 29                   Timber & sawmills             price  2020-09-02  2021-02-03   105  False  0.251  0.076   0.175         0.082
 30                         Gold miners             price  2020-09-02  2020-10-02    21  False -0.067 -0.063  -0.004        -0.021
-31                       Silver miners             price  2020-10-02  2020-11-02    21  False -0.000 -0.011   0.011         0.003
-32               Auto dealers / rental             price  2020-10-02  2020-12-02    42  False  0.151  0.099   0.053         0.051
+31               Auto dealers / rental             price  2020-10-02  2020-12-02    42  False  0.151  0.099   0.053         0.051
+32                       Silver miners             price  2020-10-02  2020-11-02    21  False -0.000 -0.011   0.011         0.003
 33                       Copper miners             price  2020-11-02  2021-02-03    63  False  0.462  0.161   0.300         0.132
 34                     AI accelerators              news  2020-12-02  2021-02-03    42  False  0.068  0.045   0.022         0.024
 35  Aero engines / castings / titanium             calls  2021-02-03  2021-03-05    21  False  0.155  0.005   0.150         0.050
-36                 Thermal coal miners              news  2021-02-03  2021-03-05    21  False -0.005  0.005  -0.010         0.000
-37                  Container shipping              news  2021-02-03  2021-10-04   168  False  1.108  0.134   0.975         0.274
-38                  Aluminium smelters             price  2021-03-05  2021-06-04    63  False  0.078  0.105  -0.027         0.038
-39                          Tin miners             price  2021-03-05  2021-11-02   168  False  0.924  0.216   0.709         0.242
+36                  Container shipping              news  2021-02-03  2021-10-04   168  False  1.108  0.134   0.975         0.274
+37                 Thermal coal miners              news  2021-02-03  2021-03-05    21  False -0.005  0.005  -0.010         0.000
+38                          Tin miners             price  2021-03-05  2021-11-02   168  False  0.924  0.216   0.709         0.242
+39                  Aluminium smelters             price  2021-03-05  2021-06-04    63  False  0.078  0.105  -0.027         0.038
 40                 Thermal coal miners        price+news  2021-06-04  2021-07-06    21  False  0.072  0.028   0.044         0.026
 41                    US gas producers              news  2021-07-06  2021-08-04    21  False -0.086  0.014  -0.100        -0.027
 42                  Aluminium smelters             price  2021-08-04  2021-09-02    21  False  0.060  0.032   0.028         0.024
 43                 Thermal coal miners        price+news  2021-09-02  2021-12-02    63  False -0.076  0.013  -0.088        -0.016
 44                    Coffee (futures)             price  2021-10-04  2021-11-02    21  False  0.038  0.078  -0.039         0.014
-45                    US gas producers        price+news  2021-11-02  2021-12-02    21  False -0.156 -0.010  -0.146        -0.054
-46               Auto dealers / rental  price+news+calls  2021-11-02  2022-01-03    42  False -0.146  0.038  -0.184        -0.049
+45               Auto dealers / rental  price+news+calls  2021-11-02  2022-01-03    42  False -0.146  0.038  -0.184        -0.049
+46                    US gas producers        price+news  2021-11-02  2021-12-02    21  False -0.156 -0.010  -0.146        -0.054
 47                     AI accelerators              news  2021-12-02  2022-01-03    21  False -0.000  0.048  -0.048         0.003
 48                          Tin miners             price  2021-12-02  2022-06-03   126  False  0.131 -0.096   0.228         0.066
-49                 Thermal coal miners              news  2022-01-03  2022-04-04    63  False  0.798 -0.041   0.839         0.206
-50                    Coffee (futures)             price  2022-01-03  2022-02-02    21  False  0.069 -0.043   0.112         0.023
+49                    Coffee (futures)             price  2022-01-03  2022-02-02    21  False  0.069 -0.043   0.112         0.023
+50                 Thermal coal miners              news  2022-01-03  2022-04-04    63  False  0.798 -0.041   0.839         0.206
 51                  Container shipping        news+calls  2022-02-02  2022-03-04    21  False  0.042 -0.055   0.097         0.015
 52                  Aluminium smelters              news  2022-03-04  2022-05-04    42  False -0.297 -0.004  -0.293        -0.107
 53                    US gas producers              news  2022-04-04  2022-10-04   126  False  0.009 -0.166   0.174         0.031
@@ -85,8 +85,8 @@ correlation with SPY 0.45 | months beating SPY 0.6
 61                      Semiconductors             price  2023-02-03  2023-05-19    73  False  0.071  0.019   0.052         0.026
 62                         Gold miners             price  2023-05-05  2023-06-06    21  False -0.106  0.037  -0.144        -0.036
 63                     Sugar (futures)             price  2023-05-05  2024-01-08   169  False -0.174  0.163  -0.337        -0.054
-64              Grid & power equipment              news  2023-06-06  2023-11-02   104  False  0.232  0.014   0.219         0.074
-65                     Cocoa (futures)             price  2023-06-06  2024-08-07   294  False  1.820  0.233   1.586         0.405
+64                     Cocoa (futures)             price  2023-06-06  2024-08-07   294  False  1.820  0.233   1.586         0.405
+65              Grid & power equipment              news  2023-06-06  2023-11-02   104  False  0.232  0.014   0.219         0.074
 66                      Uranium miners             price  2023-11-03  2024-05-21   136  False  0.301  0.231   0.070         0.098
 67                     AI accelerators             calls  2024-02-06  2024-07-02   101  False  0.397  0.118   0.279         0.121
 68              Grid & power equipment              news  2024-06-06  2024-08-02    39  False -0.076 -0.000  -0.076        -0.021
@@ -106,19 +106,20 @@ correlation with SPY 0.45 | months beating SPY 0.6
 82                       Copper miners             price  2026-02-10  2026-03-12    21  False -0.096 -0.038  -0.059        -0.030
 83                          Tin miners             price  2026-03-12  2026-04-13    21  False  0.051  0.033   0.019         0.021
 84                  Aluminium smelters             price  2026-04-13  2026-07-14    63  False -0.270  0.099  -0.369        -0.096
-85                          Tin miners             price  2026-05-12  2026-07-14    42  False -0.055  0.021  -0.076        -0.014
-86                    LNG / Europe gas              news  2026-07-14  2026-08-04    15  False  0.026  0.026   0.000         0.010
+85                          Tin miners             price  2026-05-12  2026-06-11    21  False -0.076 -0.001  -0.076        -0.023
+86                      Semiconductors             calls  2026-06-11  2026-07-02    14  False -0.028  0.012  -0.040        -0.006
 87                     AI accelerators              news  2026-07-14  2026-10-02    57  False  0.139  0.026   0.113         0.049
-88                          Tin miners             price  2026-08-12  2026-11-06    61  False -0.177 -0.046  -0.131        -0.059
-89                    Cotton (futures)             price  2026-09-11  2026-11-06    40  False -0.040 -0.036  -0.004        -0.012
-90                       Copper miners             price  2026-10-12  2026-11-09    20   True -0.118 -0.033  -0.086        -0.039
+88                    LNG / Europe gas              news  2026-07-14  2026-08-04    15  False  0.026  0.026   0.000         0.010
+89                          Tin miners             price  2026-08-12  2026-11-06    61  False -0.177 -0.046  -0.131        -0.059
+90                    Cotton (futures)             price  2026-09-11  2026-11-06    40  False -0.040 -0.036  -0.004        -0.012
+91                       Copper miners             price  2026-10-12  2026-11-09    20   True -0.118 -0.033  -0.086        -0.039
 
                    n    won   mean  contribution
 signal                                          
-calls             16  0.625  0.090         0.443
+calls             17  0.588  0.083         0.437
 news              22  0.636  0.248         1.130
 news+calls         1  1.000  0.042         0.015
-price             42  0.619  0.149         1.873
+price             42  0.619  0.148         1.864
 price+news         8  0.500 -0.003         0.010
 price+news+calls   1  0.000 -0.146        -0.049
 
@@ -129,7 +130,7 @@ Cocoa (futures)                     2         0.426
 Container shipping                  3         0.350
 PGM miners                          3         0.336
 AI accelerators                     6         0.261
-Tin miners                          5         0.255
+Tin miners                          5         0.246
 Gold miners                         5         0.243
 Silver miners                       4         0.238
 Thermal coal miners                 6         0.223
@@ -143,8 +144,8 @@ Grid & power equipment              2         0.053
 Aero engines / castings / titanium  1         0.050
 Egg producers                       5         0.050
 LNG / Europe gas                    3         0.048
-Semiconductors                      2         0.031
 Skilled labour                      1         0.027
+Semiconductors                      3         0.025
 Iron ore majors                     1         0.025
 Water                               1         0.019
 Auto dealers / rental               2         0.002
@@ -160,20 +161,20 @@ Aluminium smelters                  4        -0.141
 === 3. ADDITIONS ===
                                                 cagr    vol  sharpe  maxdd  cagr_18_22  sharpe_18_22  cagr_23_26  sharpe_23_26  invested
 rule                                                                                                                                    
-baseline: monthly top 3 by 6m momentum         0.399  0.305   1.256 -0.379       0.225         0.837       0.664         1.763     0.902
-idle money in SPY instead of cash              0.400  0.327   1.195 -0.529       0.213         0.748       0.688         1.804     0.902
-only themes with positive 6m return            0.310  0.283   1.096 -0.512       0.097         0.486       0.650         1.782     0.773
-100-day entry gate                             0.406  0.299   1.293 -0.373       0.246         0.916       0.647         1.738     0.859
-rank by 3m momentum                            0.319  0.304   1.063 -0.411       0.200         0.769       0.491         1.420     0.907
-rank by 12m momentum                           0.396  0.308   1.237 -0.422       0.273         0.968       0.573         1.557     0.902
-rank by blend of 3/6/12m                       0.417  0.307   1.290 -0.379       0.295         1.032       0.593         1.598     0.905
+baseline: monthly top 3 by 6m momentum         0.396  0.306   1.243 -0.379       0.225         0.837       0.655         1.730     0.901
+idle money in SPY instead of cash              0.398  0.329   1.185 -0.529       0.213         0.748       0.681         1.772     0.901
+only themes with positive 6m return            0.307  0.285   1.083 -0.512       0.097         0.486       0.641         1.746     0.772
+100-day entry gate                             0.403  0.300   1.279 -0.373       0.246         0.916       0.638         1.705     0.858
+rank by 3m momentum                            0.334  0.306   1.096 -0.411       0.200         0.769       0.530         1.488     0.906
+rank by 12m momentum                           0.393  0.310   1.224 -0.422       0.273         0.968       0.565         1.527     0.901
+rank by blend of 3/6/12m                       0.417  0.309   1.285 -0.379       0.295         1.032       0.593         1.583     0.904
 rank by 6m momentum skipping last month        0.392  0.306   1.235 -0.413       0.269         0.960       0.570         1.564     0.901
-weight by inverse volatility                   0.392  0.294   1.273 -0.367       0.227         0.860       0.640         1.783     0.902
+weight by inverse volatility                   0.389  0.296   1.259 -0.367       0.227         0.860       0.631         1.745     0.901
 top 2                                          0.454  0.359   1.223 -0.482       0.247         0.817       0.777         1.700     0.929
-top 4                                          0.294  0.273   1.082 -0.350       0.180         0.755       0.458         1.487     0.846
-top 5                                          0.277  0.245   1.122 -0.319       0.210         0.907       0.369         1.397     0.785
-to cash when SPY is below its 200-day average  0.332  0.257   1.242 -0.337       0.194         0.928       0.535         1.569     0.743
-rebalance every 2 weeks                        0.329  0.306   1.086 -0.495       0.192         0.748       0.533         1.488     0.912
-20 bp cost per trade instead of 10             0.390  0.305   1.234 -0.384       0.215         0.811       0.655         1.746     0.902
+top 4                                          0.303  0.274   1.103 -0.350       0.180         0.755       0.483         1.528     0.846
+top 5                                          0.280  0.246   1.127 -0.319       0.210         0.907       0.377         1.407     0.788
+to cash when SPY is below its 200-day average  0.329  0.260   1.226 -0.337       0.194         0.928       0.527         1.536     0.742
+rebalance every 2 weeks                        0.334  0.309   1.089 -0.495       0.192         0.748       0.544         1.488     0.911
+20 bp cost per trade instead of 10             0.386  0.306   1.221 -0.384       0.215         0.811       0.646         1.713     0.901
 better than baseline in BOTH periods: ['weight by inverse volatility']
-combo (positive momentum + idle in SPY): {'cagr': np.float64(0.379), 'vol': np.float64(0.31), 'sharpe': np.float64(1.195), 'maxdd': np.float64(-0.471), 'cagr_18_22': np.float64(0.172), 'sharpe_18_22': np.float64(0.672), 'cagr_23_26': np.float64(0.705), 'sharpe_23_26': np.float64(1.867)}
+combo (positive momentum + idle in SPY): {'cagr': np.float64(0.377), 'vol': np.float64(0.312), 'sharpe': np.float64(1.183), 'maxdd': np.float64(-0.471), 'cagr_18_22': np.float64(0.172), 'sharpe_18_22': np.float64(0.672), 'cagr_23_26': np.float64(0.698), 'sharpe_23_26': np.float64(1.832)}

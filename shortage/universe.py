@@ -40,7 +40,8 @@ def build():
     Cc = daily(cu, BN.B["lag"], lambda k: SAME.get(k, k))
     level = (1 + tr).cumprod()
     return dict(tr=tr, P=P, N=N, C=Cc, ON=((P + N + Cc) > 0).astype(float), level=level, cal=cal, idx=cal[cal >= C.START],
-                spy=ret["SPY"].fillna(0), cash=ret["BIL"].fillna(0), baskets=baskets, names=names, px=px)
+                spy=ret["SPY"].fillna(0), cash=ret["BIL"].fillna(0), baskets=baskets, names=names, px=px,
+                up=up, src=src, nar=nar, H=H, items=items)
 
 
 def rotate(U, active, rank=None, top=3, every=21, seed=None, absmom=None, weights="eq", idle="cash", spy_gate=False, cost_bps=10):
